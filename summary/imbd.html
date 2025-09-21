@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb Top 250 Movies Analysis - Abdelrahman Haroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #3b82f6/60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html#hero" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="../index.html#about" class="text-sm font-medium text-gray-600 hover:text-blue-600">About</a>
+                    <a href="../index.html#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skills</a>
+                    <a href="../index.html#projects" class="text-sm font-medium text-gray-600 hover:text-blue-600">Projects</a>
+                    <a href="../index.html#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600">Experience</a>
+                    <a href="../index.html#certifications" class="text-sm font-medium text-gray-600 hover:text-blue-600">Certifications</a>
+                    <a href="../index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden px-4 py-2 border rounded-md">Menu</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-8">🎬 IMDb Top 250 Movies Analysis</h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    An analytical dashboard exploring the IMDb Top 250 Movies, visualizing distribution by year, movie type, and rating categories to uncover cinematic trends.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/your-github-username/imdb-top-250" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        View on GitHub
+                    </a>
+                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Details</h2>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🚀 Project Overview</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project analyzes the <strong>IMDb Top 250 Movies</strong> dataset, covering 250 films from 1920 to 2020. It includes visualizations such as a line chart for movies by year, a pie chart for movie types (Old vs. New), and a bar chart for rating categories (e.g., PG, R). The dashboard provides insights into cinematic trends and audience preferences.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📊 Overview of the Dataset</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Total number of movies</strong>: 250 films in the Top 250 list</li>
+                        <li><strong>Time span</strong>: Movies span from 1920 to 2020</li>
+                        <li><strong>Key visualizations</strong>: Line chart for movies by year, pie chart for movie types (Old vs. New), and bar chart for rating categories (e.g., PG, R)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📅 Distribution by Year</h3>
+                    <p class="text-gray-600 mb-4">
+                        Movies per year show fluctuations, with peaks in the 1990s and 2000s (up to 6-7 movies per year in some periods). Lowest activity in early years (e.g., 1920s-1930s with 1-2 movies) and recent years (2000s with 4-8 movies).
+                    </p>
+                    <p class="text-gray-600">
+                        <strong>Insight</strong>: The majority of top-rated movies are from the late 20th and early 21st centuries, reflecting modern cinematic peaks.
+                    </p>
+                    <!-- Placeholder for visualization -->
+                    <img src="images/movies_by_year.png" alt="Movies by Year Line Chart" class="w-full h-auto rounded-lg shadow-sm mt-4">
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🎥 Distribution by Movie Type</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Old Type</strong>: 40% (100 movies)</li>
+                        <li><strong>New Type</strong>: 60% (150 movies)</li>
+                    </ul>
+                    <p class="text-gray-600 mt-2">
+                        <strong>Insight</strong>: Newer films dominate the top list, suggesting evolving tastes or production quality in recent decades.
+                    </p>
+                    <!-- Placeholder for visualization -->
+                    <img src="images/movie_types.png" alt="Movie Types Pie Chart" class="w-full h-auto rounded-lg shadow-sm mt-4">
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">⭐ Distribution by Rating Category</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>PG</strong>: 106 movies (highest)</li>
+                        <li><strong>R</strong>: 39 movies</li>
+                        <li><strong>PG-13</strong>: 36 movies</li>
+                        <li><strong>Not Rated</strong>: 33 movies</li>
+                        <li><strong>Approved</strong>: 33 movies</li>
+                        <li><strong>G</strong>: 18 movies</li>
+                        <li><strong>Passed</strong>: 5 movies</li>
+                    </ul>
+                    <p class="text-gray-600 mt-2">
+                        <strong>Insight</strong>: Family-friendly ratings (PG, PG-13) make up the bulk, indicating broad appeal for top-rated films.
+                    </p>
+                    <!-- Placeholder for visualization -->
+                    <img src="images/rating_categories.png" alt="Rating Categories Bar Chart" class="w-full h-auto rounded-lg shadow-sm mt-4">
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📈 Overall Trends</h3>
+                    <p class="text-gray-600">
+                        The dashboard highlights a shift toward more diverse and accessible content in recent years. Average release year trends toward the 1990s-2010s, with balanced representation across ratings.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📌 Recommendations Based on Analysis</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Focus on modern films (New Type) for content curation, as they represent 60% of top ratings.</li>
+                        <li>Prioritize PG-rated movies for family-oriented recommendations to maximize audience reach.</li>
+                        <li>Analyze year-based peaks (e.g., 1990s) for historical trends in film quality.</li>
+                        <li>Expand the dataset to include metrics like genres or directors for deeper insights into success factors.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🎯 Conclusion</h3>
+                    <p class="text-gray-600">
+                        The IMDb Top 250 Movies dashboard reveals a rich history of cinema, with a strong emphasis on post-1990 films and family-friendly ratings. This project is ideal for film enthusiasts or analysts exploring trends; to dive deeper, integrate additional data like viewer demographics or box office performance for more robust storytelling.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed by <a href="https://www.linkedin.com/in/abdelrhman-ashraf-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
+                    </p>
+                    <p class="text-gray-600">
+                        👉 If you like this project, give it a <a href="https://github.com/your-github-username/imdb-top-250" target="_blank" class="text-blue-600 hover:underline">⭐ on GitHub</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-8 px-4 border-t">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600">
+                © 2024 Abdelrahman Haroun. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

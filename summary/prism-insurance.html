@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRISM Insurance Analytics Dashboard - Abdelrahman Haroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #3b82f6/60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html#hero" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="../index.html#about" class="text-sm font-medium text-gray-600 hover:text-blue-600">About</a>
+                    <a href="../index.html#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skills</a>
+                    <a href="../index.html#projects" class="text-sm font-medium text-gray-600 hover:text-blue-600">Projects</a>
+                    <a href="../index.html#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600">Experience</a>
+                    <a href="../index.html#certifications" class="text-sm font-medium text-gray-600 hover:text-blue-600">Certifications</a>
+                    <a href="../index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden px-4 py-2 border rounded-md">Menu</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-8">📊 PRISM Insurance Analytics Dashboard</h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    An interactive Power BI dashboard for PRISM Insurance, analyzing premiums, claims, customer feedback, and policy performance for data-driven insights.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/your-github-username/prism-insurance" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        View on GitHub
+                    </a>
+                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Details</h2>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🚀 Project Overview</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project features an interactive analytics dashboard for <strong>PRISM Insurance Pvt. Ltd.</strong>, a fictional insurance company. It transforms raw insurance data into actionable insights, helping stakeholders monitor key metrics like premiums, claims, customer feedback, and policy performance. Designed for data-driven decisions, it uncovers trends in claims processing and highlights customer service improvement areas.
+                    </p>
+                    <p class="text-gray-600">
+                        The dashboard processes datasets including policy details, customer demographics, claim histories, and sentiment-analyzed feedback. With advanced visualizations, it offers a user-friendly interface to explore complex data, cutting manual reporting time and revealing efficiency opportunities.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🎯 Objectives</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Visualize core metrics: Aggregate and display premiums 💰, coverage 📦, and claims 📋 for a quick business health overview.</li>
+                        <li>Analyze customer feedback: Use sentiment analysis 💡 and word clouds ☁ to spot common pain points and positive experiences.</li>
+                        <li>Track claims and policies: Monitor claim statuses ✅, policy types 📜, and demographic trends 👥 to identify inefficiencies.</li>
+                        <li>Support interactive exploration: Enable filtering 🎛, drill-downs ⬇, and custom views for deeper analysis.</li>
+                        <li>Enhance portfolio showcase: Showcase expertise in data visualization 🎨, ETL processes 🔄, and BI tools 💻.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🔧 Technologies Used</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Power BI 📊</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Power Query 🧹</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">DAX 📉</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Excel/CSV 📂</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Sentiment Analysis 💡</span>
+                    </div>
+                    <p class="text-gray-600">
+                        <strong>Environment</strong>: Power BI Desktop, deployable to Power BI Service for sharing.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📊 Key Features and Visualizations</h3>
+                    <p class="text-gray-600 mb-4">
+                        The dashboard spans multiple pages for focused analysis, including an overview, detailed data, and feedback sections.
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">1. Executive Summary Metrics 📊</h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Total Premium Amount: 5.98M 💰</li>
+                                <li>Total Coverage Amount: 600.55M 📦</li>
+                                <li>Sum of Claim Amounts: 16.91M 📋</li>
+                                <li>Displayed as bold cards with conditional formatting to flag variances ⚠.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">2. Policy and Demographic Breakdowns 📜👥</h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li><strong>Premium Amount by Policy Type</strong>: Bar chart showing Travel (2.5M), Health (1.2M), Auto (1M), Life (0.7M), Home (0.6M) 🚗🏠.</li>
+                                <li><strong>Active vs. Inactive Policies</strong>: Pie chart with 25.09% Active and 74.91% Inactive, aiding retention analysis.</li>
+                                <li><strong>Gender Distribution</strong>: Cards showing 5001 Females 👩 and 5003 Males 👨, expandable by age groups (Young Adult, Adult, Elder).</li>
+                            </ul>
+                            <img src="images/prism-policy-breakdown.png" alt="Policy Breakdown Visualization" class="w-full h-auto rounded-lg shadow-sm mt-4">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">3. Claims Analysis 📋</h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li><strong>Number of Claims by Claim Status</strong>: Column chart with Rejected (8.4K), Settled (3.4K), Pending (2.3K) ✅❌⏳.</li>
+                                <li><strong>Claim Amount by Age Group</strong>: Area chart trending claims across Young Adult, Adult, Elder, showing higher claims in older groups 👴.</li>
+                                <li><strong>Claims Summary Table</strong>: Crosstab by Policy Type, e.g., Auto: Pending 20,810.53, Rejected 40,671.59, Settled 32,984.58.</li>
+                            </ul>
+                            <img src="images/prism-claims-analysis.png" alt="Claims Analysis Visualization" class="w-full h-auto rounded-lg shadow-sm mt-4">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">4. Customer Feedback and Sentiment Analysis 😊💬</h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li><strong>Word Cloud Visualization</strong>: Highlights terms like "Policy," "Claims," "Customer Service," "Helpful," "Frustrating," "Quick" from feedback text ☁.</li>
+                                <li><strong>Feedback Categorization Bar Chart</strong>: Counts Excellent (54) 😊, Needs Improvement (39) ⚠, Good (4) ✅.</li>
+                                <li><strong>Detailed Feedback Table</strong>: Lists names, sentiment scores (0.01-0.07), e.g., Aaron Collins: "Website down, inconvenient," Amanda Scott: "Policy rates increased, not happy."</li>
+                            </ul>
+                            <img src="images/prism-feedback-wordcloud.png" alt="Feedback Word Cloud Visualization" class="w-full h-auto rounded-lg shadow-sm mt-4">
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">5. Interactive Data Table 📂</h4>
+                            <p class="text-gray-600">
+                                Paginated view of raw data (PolicyNumber, CustomerID, ClaimNumber, Age, Gender, etc.) with filters 🎛 and sorting 🔧.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">6. Advanced Interactivity 🔍</h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li><strong>Filters and Slicers</strong>: Dynamic updates across visuals by Age Group, Claim Status, Gender, Policy Type 🎛.</li>
+                                <li><strong>Drill-Through Capabilities</strong>: Click visuals to explore detailed pages (e.g., claims, feedback) ⬇.</li>
+                                <li><strong>AI-Enhanced Insights</strong>: Sentiment scoring 😊 and key influencers for claims rejection trends 💡.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">⚙️ Challenges and Solutions</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Challenge</strong>: Inconsistent data formats in feedback 💬 and dates 📅.<br>
+                            <strong>Solution</strong>: Power Query cleaned data 🧹, with text analytics for sentiment 💡.</li>
+                        <li><strong>Challenge</strong>: Avoiding visual overload 🎨.<br>
+                            <strong>Solution</strong>: Multi-page layout with tooltips ℹ and cross-highlighting 🔗.</li>
+                        <li><strong>Challenge</strong>: Performance with large datasets 📊.<br>
+                            <strong>Solution</strong>: Optimized DAX 📉 and aggregated models for speed ⚡.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📈 Results and Impact</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Efficiency Gains</strong>: Cut report generation from hours to minutes with automation 🤖.</li>
+                        <li><strong>Insights Uncovered</strong>: Spotted high Health policy rejections and themes like "unclear terms" for improvement ⚠.</li>
+                        <li><strong>Scalability</strong>: Adapts to new data seamlessly 🌐.</li>
+                        <li><strong>Personal Growth</strong>: Boosted skills in BI, data storytelling 📖, and user design 🎨.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📑 Pages</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Page 1</strong>: Customer Feedback Page – Word Cloud ☁, Feedback Table 💬, Categorization Chart 📊.</li>
+                        <li><strong>Page 2</strong>: Detailed Data Table – Policy and Claim Records 📂 with Filters 🎛.</li>
+                        <li><strong>Page 3</strong>: Overview Dashboard – Summary Metrics 📊, Policy Breakdowns 📜, Claims Visuals 📋.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed by <a href="https://www.linkedin.com/in/abdelrhman-ashraf-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
+                    </p>
+                    <p class="text-gray-600">
+                        👉 If you like this project, give it a <a href="https://github.com/your-github-username/prism-insurance" target="_blank" class="text-blue-600 hover:underline">⭐ on GitHub</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-8 px-4 border-t">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600">
+                © 2024 Abdelrahman Haroun. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

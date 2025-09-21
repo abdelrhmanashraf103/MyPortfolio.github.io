@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales Dashboard - Abdelrahman Haroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #3b82f6/60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html#hero" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="../index.html#about" class="text-sm font-medium text-gray-600 hover:text-blue-600">About</a>
+                    <a href="../index.html#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skills</a>
+                    <a href="../index.html#projects" class="text-sm font-medium text-gray-600 hover:text-blue-600">Projects</a>
+                    <a href="../index.html#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600">Experience</a>
+                    <a href="../index.html#certifications" class="text-sm font-medium text-gray-600 hover:text-blue-600">Certifications</a>
+                    <a href="../index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden px-4 py-2 border rounded-md">Menu</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-8">📈 Product Sales Dashboard</h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    An interactive Power BI dashboard analyzing sales performance across 219 products and 93 customers, visualizing total sales, tax, freight, and customer behaviors.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/your-github-username/product-sales" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        View on GitHub
+                    </a>
+                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Details</h2>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🚀 Project Overview</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project is an interactive <strong>Power BI dashboard</strong> designed to analyze detailed sales performance across products, customers, and regions. Developed as of September 2025, it consolidates product sales data, customer stats, tax, freight, and order status into a dynamic, multi-page dashboard. The goal is to provide a clear, real-time view of key sales metrics to assist analysts and decision-makers in tracking business health and performance.
+                    </p>
+                    <p class="text-gray-600">
+                        The dashboard includes data on <strong>219 products</strong> and <strong>93 customers</strong>, presenting total sales, tax, freight costs, and detailed customer purchase behaviors. It enables easy navigation between overview, product details, and customer-level insights.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🔧 Tech Stack & Libraries</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Power BI 📊</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Interactive KPIs 📈</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Bar Charts 📊</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Line Charts 📉</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Treemaps 🌳</span>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Power BI for advanced data visualization and dashboard construction</li>
+                        <li>Interactive KPIs, bar charts, line charts, pie charts, and treemaps</li>
+                        <li>Dynamic filters for order status, product categories, and time</li>
+                        <li>Integrated data sources including sales, customer, and shipping data</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📥 Data Workflow</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Data Sourcing</strong>: Sourced from structured sales and customer datasets with complete transactional information.</li>
+                        <li><strong>Transformation</strong>: Processes ensure data accuracy and consistency for robust visualizations.</li>
+                        <li><strong>Dashboard Design</strong>: Designed multiple report pages: Main overview, Products sales analysis, and Details with deep-dives.</li>
+                    </ul>
+                    <p class="text-gray-600 mt-4">Visual elements include:</p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>✅ KPIs for total products, customers, tax amount, freight, and sales</li>
+                        <li>✅ Sales and order count by product with dual-axis bar and line chart</li>
+                        <li>✅ Customer sales ranking bar chart highlighting top purchasers</li>
+                        <li>✅ Geographic sales distribution by territory with bar charts</li>
+                        <li>✅ Order volume by shipping method displayed in donut chart</li>
+                        <li>✅ Product quantity distribution by category with treemap and sankey flow to subcategories</li>
+                    </ul>
+                    <img src="images/product-sales-overview.png" alt="Product Sales Dashboard Overview" class="w-full h-auto rounded-lg shadow-sm mt-4">
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📊 Usage and Insights</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Enables executives and analysts to monitor product and customer performance at different granularities.</li>
+                        <li>Insights on order status trends and key customer contributions support targeted strategies.</li>
+                        <li>Identifies product categories driving sales and quantities shipped.</li>
+                        <li>Makes complex multidimensional data accessible through intuitive visual storytelling.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📌 Key Learnings</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>✔️ Effective use of Power BI visuals to communicate sales data</li>
+                        <li>✔️ Implementing multi-page, interconnected dashboards for comprehensive exploration</li>
+                        <li>✔️ Combining quantitative KPIs with qualitative filters and tooltips for enhanced user experience</li>
+                        <li>✔️ Structuring diverse datasets blending products, customers, shipping, and transactional info for BI reporting</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">⚠️ Notes</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>The dashboard utilizes static data snapshots; live data integration is recommended for real-time insights.</li>
+                        <li>Scalability and dynamic refresh features should be implemented for production environments.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🌟 Project Value</h3>
+                    <p class="text-gray-600">
+                        This dashboard project showcases essential Business Intelligence skills applicable for retail, e-commerce, and sales performance analytics. It equips businesses to track financial metrics, customer habits, and product trends for optimized decision-making and resource allocation.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed by <a href="https://www.linkedin.com/in/abdelrhman-ashraf-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
+                    </p>
+                    <p class="text-gray-600">
+                        👉 If you like this project, give it a <a href="https://github.com/your-github-username/product-sales" target="_blank" class="text-blue-600 hover:underline">⭐ on GitHub</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-8 px-4 border-t">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600">
+                © 2024 Abdelrahman Haroun. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMIT BI Performance Analysis - Abdelrahman Haroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #3b82f6/60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html#hero" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="../index.html#about" class="text-sm font-medium text-gray-600 hover:text-blue-600">About</a>
+                    <a href="../index.html#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skills</a>
+                    <a href="../index.html#projects" class="text-sm font-medium text-gray-600 hover:text-blue-600">Projects</a>
+                    <a href="../index.html#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600">Experience</a>
+                    <a href="../index.html#certifications" class="text-sm font-medium text-gray-600 hover:text-blue-600">Certifications</a>
+                    <a href="../index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden px-4 py-2 border rounded-md">Menu</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-8">🛠️ AMIT BI Performance Analysis</h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    A Power BI dashboard designed to analyze business performance (2015-2017), visualizing revenue, profit, orders, and customer transactions for strategic decision-making.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/your-github-username/amit-bi" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        View on GitHub
+                    </a>
+                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Details</h2>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🚀 Project Overview</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project, named <strong>AMIT BI</strong>, is a Power BI dashboard designed to analyze the performance of a business (likely a retail or e-commerce entity) over the years 2015-2017. The goal is to automate product data collection (revenue, profit, orders, and customer transactions) and visualize it into an interactive dashboard for further analysis. This project showcases data transformation skills.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        This dashboard can be used by analysts, managers, or businesses to:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Track financial performance over time 📉📈</li>
+                        <li>Compare product and customer performance 🔍</li>
+                        <li>Collect structured data for market research 📊</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🔧 Tech Stack & Libraries</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Power BI 🖥️</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Data Transformation 🛠️</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Visualization 📊</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Filters 🔍</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">CSV/Database 📑</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📥 Data Extraction Workflow</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Data Collection</h4>
+                            <p class="text-gray-600">
+                                Sourced from a structured dataset (likely CSV or database) containing sales, customer, and product details.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Data Transformation</h4>
+                            <p class="text-gray-600">
+                                Handled missing values and ensured consistency for accurate visualization.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Dashboard Creation</h4>
+                            <p class="text-gray-600 mb-2">
+                                Designed multiple pages (Overview, Product, Customer Tooltip, Product Details) with:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>✅ Total Revenue and Profit</li>
+                                <li>✅ Customer Transaction Breakdown</li>
+                                <li>✅ Quantity Sold and Returned</li>
+                                <li>✅ Regional and Product Margin Analysis</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Data Validation</h4>
+                            <p class="text-gray-600">
+                                Implemented filters and tooltips to manage missing elements, with debugging notes for refinement.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Save Results</h4>
+                            <p class="text-gray-600">
+                                Exported insights as interactive visuals and potential CSV exports for further analysis.
+                            </p>
+                            <p class="text-gray-600 mb-2">
+                                Columns include:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>product_category</li>
+                                <li>total_revenue</li>
+                                <li>total_profit</li>
+                                <li>total_orders</li>
+                                <li>avg_order_value</li>
+                                <li>returned_quantity</li>
+                                <li>quantity_sold</li>
+                                <li>margin</li>
+                                <li>return_rate</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📊 Example Use Case</h3>
+                    <p class="text-gray-600 mb-4">
+                        For the AMIT BI dashboard, the analysis reveals:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Title</strong> → AMIT BI Performance Analysis Dashboard 🎨</li>
+                        <li><strong>Revenue</strong> → $25M</li>
+                        <li><strong>Profit</strong> → $10M</li>
+                        <li><strong>Top Customer</strong> → Jordan Turner ($15.6K) ⭐</li>
+                        <li><strong>Features</strong> → Interactive filters, regional breakdowns, and profit margins…</li>
+                        <li><strong>Description</strong> → Comprehensive view of sales, returns, and customer trends</li>
+                        <li><strong>Insights</strong> → Opportunities in Europe and weekend sales growth</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📌 Key Learnings</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>✔️ How to design interactive dashboards with Power BI</li>
+                        <li>✔️ Transforming multi-dimensional data into visual insights</li>
+                        <li>✔️ Best practices for handling missing data in visualizations</li>
+                        <li>✔️ Exporting clean datasets for advanced analysis</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">⚠️ Important Notes</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Data reflects 2015-2017; real-time updates are recommended for current trends.</li>
+                        <li>For production usage, consider integrating live data sources to handle dynamic content and ensure accuracy.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🌟 Why This Project Matters</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project demonstrates real-world business intelligence skills that can be applied in:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>E-commerce Performance Tracking</li>
+                        <li>Market Trend Analysis</li>
+                        <li>Strategic Decision Support</li>
+                        <li>Customer Segmentation</li>
+                    </ul>
+                    <p class="text-gray-600">
+                        It’s a solid foundation for data-driven decision-making in retail and marketing.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📋 Recommendations</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>✔️ <strong>Improve Product Quality in Europe</strong>: Address the 33.33% return rate by enhancing product standards or customer support in this region. 🔧</li>
+                        <li>✔️ <strong>Boost Weekend Sales</strong>: Launch targeted marketing campaigns to increase the 28.57% weekend order share, potentially doubling weekend revenue. 📈</li>
+                        <li>✔️ <strong>Optimize Low-Margin Products</strong>: Review "L Road Frame" and "LL Touring Frame" for cost efficiency to improve overall margins. 💡</li>
+                        <li>✔️ <strong>Enhance Customer Loyalty</strong>: Develop tailored loyalty programs for top customers like Jordan Turner to sustain high-value transactions. 🤝</li>
+                        <li>✔️ <strong>Integrate Live Data</strong>: Update the dashboard with real-time data sources for dynamic insights beyond 2017. ⏳</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed by <a href="https://www.linkedin.com/in/abdelrhman-ashraf-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
+                    </p>
+                    <p class="text-gray-600">
+                        👉 If you like this project, give it a <a href="https://github.com/your-github-username/amit-bi" target="_blank" class="text-blue-600 hover:underline">⭐ on GitHub</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-8 px-4 border-t">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600">
+                © 2024 Abdelrahman Haroun. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

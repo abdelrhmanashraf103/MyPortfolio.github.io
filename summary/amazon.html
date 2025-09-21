@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Web Scraper - Abdelrahman Haroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #3b82f6/60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html#hero" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="../index.html#about" class="text-sm font-medium text-gray-600 hover:text-blue-600">About</a>
+                    <a href="../index.html#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skills</a>
+                    <a href="../index.html#projects" class="text-sm font-medium text-gray-600 hover:text-blue-600">Projects</a>
+                    <a href="../index.html#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600">Experience</a>
+                    <a href="../index.html#certifications" class="text-sm font-medium text-gray-600 hover:text-blue-600">Certifications</a>
+                    <a href="../index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden px-4 py-2 border rounded-md">Menu</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-8">🛒 Amazon Product Web Scraper</h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    A web scraping script built with Python, BeautifulSoup, and Requests to extract detailed product information from Amazon product pages and save it into a CSV file for analysis.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/your-github-username/amazon-scraper" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        View on GitHub
+                    </a>
+                    <a href="index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Details</h2>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🚀 Project Overview</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project is a <strong>web scraping script</strong> built with <strong>Python, BeautifulSoup, and Requests</strong> to extract detailed product information from Amazon product pages. The goal is to automate product data collection (title, price, ratings, reviews, description, and features) and save it into a CSV file for further analysis.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        This scraper can be used by shoppers, data analysts, or businesses to:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Track price changes over time 📉📈</li>
+                        <li>Compare competing products 🔍</li>
+                        <li>Collect structured data for market research 📊</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🔧 Tech Stack & Libraries</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Python 🐍</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Requests 📡</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">BeautifulSoup 🍲</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Time ⏳</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">CSV 📑</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📥 Data Extraction Workflow</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Send Request to Amazon</h4>
+                            <p class="text-gray-600 mb-2">
+                                A User-Agent header is added to mimic a browser and avoid being blocked.
+                            </p>
+                            <p class="text-gray-600">
+                                The script checks the HTTP status code and handles cases like 403 (Blocked) or 503 (Server unavailable) gracefully.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Parse HTML with BeautifulSoup</h4>
+                            <p class="text-gray-600 mb-2">
+                                Extracts multiple product details such as:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>✅ Product Title (id="productTitle")</li>
+                                <li>✅ Product Price (class="a-price-whole")</li>
+                                <li>✅ Product Rating (id="acrPopover")</li>
+                                <li>✅ About this Product (a-unordered-list a-vertical a-spacing-mini)</li>
+                                <li>✅ Product Description (id="productDescription")</li>
+                                <li>✅ Customer Reviews (id="cm-cr-dp-review-list")</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Data Validation</h4>
+                            <p class="text-gray-600">
+                                If an element is not found, the script prints a warning with debugging tips (e.g., “Inspect the HTML manually”).
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">Save Results in CSV</h4>
+                            <p class="text-gray-600 mb-2">
+                                Extracted product details are written into a CSV file (amazon_airpod_pro_max.csv) for structured storage.
+                            </p>
+                            <p class="text-gray-600">
+                                Columns include:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>product_title</li>
+                                <li>product_price</li>
+                                <li>product_rate</li>
+                                <li>product_info</li>
+                                <li>product_description</li>
+                                <li>product_review</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📊 Example Use Case</h3>
+                    <p class="text-gray-600 mb-4">
+                        For the Apple AirPods Pro Max product page, the script extracts:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><strong>Title</strong> → Apple AirPods Pro Max with Active Noise Cancellation 🎧</li>
+                        <li><strong>Price</strong> → ₹59,900</li>
+                        <li><strong>Rating</strong> → 4.5 out of 5 stars ⭐</li>
+                        <li><strong>Features</strong> → “Active Noise Cancellation, Transparency Mode, Personalized Spatial Audio…”</li>
+                        <li><strong>Description</strong> → Long product description from Amazon</li>
+                        <li><strong>Reviews</strong> → Recent customer feedback</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📌 Key Learnings</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>✔️ How to send safe requests with headers & delays</li>
+                        <li>✔️ How to parse structured & unstructured data from HTML</li>
+                        <li>✔️ Best practices for handling missing elements in scraping</li>
+                        <li>✔️ Writing clean datasets into CSV format for further analysis</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">⚠️ Important Notes</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Amazon actively blocks scraping. Always respect robots.txt and Terms of Service.</li>
+                        <li>For production usage, consider Selenium, Proxies, or Rotating User-Agents to handle dynamic content and prevent blocking.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🌟 Why This Project Matters</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project demonstrates real-world data collection & automation skills that can be applied in:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>E-commerce Analytics</li>
+                        <li>Price Monitoring Systems</li>
+                        <li>Competitor Benchmarking</li>
+                        <li>Customer Sentiment Analysis</li>
+                    </ul>
+                    <p class="text-gray-600">
+                        It’s a solid foundation for data-driven decision-making in retail and marketing.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed by <a href="https://www.linkedin.com/in/abdelrhman-ashraf-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
+                    </p>
+                    <p class="text-gray-600">
+                        👉 If you like this project, give it a <a href="https://github.com/your-github-username/amazon-scraper" target="_blank" class="text-blue-600 hover:underline">⭐ on GitHub</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-8 px-4 border-t">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600">
+                © 2024 Abdelrahman Haroun. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

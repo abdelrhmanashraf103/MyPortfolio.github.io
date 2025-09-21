@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking.com Hotel Scraper & Analyzer - Abdelrahman Haroun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #3b82f6/60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 border-b">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html#hero" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="../index.html#about" class="text-sm font-medium text-gray-600 hover:text-blue-600">About</a>
+                    <a href="../index.html#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skills</a>
+                    <a href="../index.html#projects" class="text-sm font-medium text-gray-600 hover:text-blue-600">Projects</a>
+                    <a href="../index.html#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600">Experience</a>
+                    <a href="../index.html#certifications" class="text-sm font-medium text-gray-600 hover:text-blue-600">Certifications</a>
+                    <a href="../index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden px-4 py-2 border rounded-md">Menu</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-8">🏨 Booking.com Hotel Scraper & Analyzer</h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    A web scraping and data analysis pipeline built with Python, Selenium, Pandas, and Matplotlib to extract and analyze hotel data from Booking.com.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/your-github-username/booking-scraper" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        View on GitHub
+                    </a>
+                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Details</h2>
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📌 About the Project</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project is a <strong>web scraping + data analysis pipeline</strong> built with <strong>Python, Selenium, Pandas, and Matplotlib</strong>. It allows you to extract hotel data from Booking.com (name, location, price, rating, reviews, link), store it in a CSV file, and then perform statistical analysis & visualization.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🎯 Problem</h3>
+                    <p class="text-gray-600 mb-4">
+                        When planning a trip, it's often difficult to:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Compare hotel prices across multiple listings.</li>
+                        <li>Identify which hotels have the <strong>best value for money</strong> (good rating vs low price).</li>
+                        <li>Visualize trends (price distribution, top-rated hotels, etc.).</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">💡 Solution</h3>
+                    <p class="text-gray-600 mb-4">
+                        This project solves the problem by:
+                    </p>
+                    <ol class="list-decimal list-inside text-gray-600 mb-4">
+                        <li>Scraping hotel data from Booking.com using <strong>Selenium</strong>.</li>
+                        <li>Cleaning and structuring the data with <strong>Pandas</strong>.</li>
+                        <li>Generating <strong>visual insights</strong> using <strong>Matplotlib</strong>:
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Price distribution histogram 📊</li>
+                                <li>Rating distribution histogram ⭐</li>
+                                <li>Price vs Rating scatter plot 💰➡️⭐</li>
+                                <li>Top 10 hotels by rating 🏆</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">⚙️ How It Works</h3>
+                    <ol class="list-decimal list-inside text-gray-600 mb-4">
+                        <li>User provides:
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Booking.com search <strong>URL</strong></li>
+                                <li>Output <strong>CSV file name</strong></li>
+                            </ul>
+                        </li>
+                        <li>Script runs Selenium to scrape hotel details.</li>
+                        <li>Data is saved in a structured CSV format.</li>
+                        <li>Pandas cleans the data.</li>
+                        <li>Matplotlib visualizes key insights.</li>
+                    </ol>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📊 Example Visualizations</h3>
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">🔹 Price Distribution</h4>
+                        <img src="images/hotel_analysis.png" alt="Price Distribution" class="w-full h-auto rounded-lg shadow-sm">
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2">🔹 Top 10 Hotels by Rating</h4>
+                        <p class="text-gray-600">Bar chart of the highest-rated hotels with their names.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🚀 Tech Stack</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Python 🐍</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Selenium 🤖</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Pandas 🐼</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Matplotlib 📊</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🏆 Key Insights (Sample Run)</h3>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Average hotel price: <strong>$120/night</strong></li>
+                        <li>Average rating: <strong>8.5/10</strong></li>
+                        <li>Best Value: Small boutique hotels often score higher than luxury ones for the same price.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📌 Future Improvements</h3>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Integrate <strong>Seaborn/Plotly</strong> for more interactive dashboards.</li>
+                        <li>Automate scraping across multiple cities.</li>
+                        <!-- <li>Deploy as a <strong>Flask/Django web app</strong>.</li>
+                        <li>Store results in a <strong>database</strong> (MySQL/PostgreSQL).</li> -->
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed by <a href="https://www.linkedin.com/in/abdelrhman-ashraf-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
+                    </p>
+                    <p class="text-gray-600">
+                        👉 If you like this project, give it a <a href="https://github.com/your-github-username/booking-scraper" target="_blank" class="text-blue-600 hover:underline">⭐ on GitHub</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-8 px-4 border-t">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600">
+                © 2024 Abdelrahman Haroun. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
