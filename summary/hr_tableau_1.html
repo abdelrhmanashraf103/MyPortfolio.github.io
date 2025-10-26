@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Analytics Dashboard - Employee Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --section-bg: #f9fafb;
+            --section-bg-alt: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --hover-bg: #f3f4f6;
+            --toggle-bg: #f3f4f6;
+            --toggle-active: #3b82f6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0a0a0a;
+            --text-color: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --border-color: #2a2a2a;
+            --card-bg: #0a0a0a;
+            --nav-bg: rgba(10, 10, 10, 0.95);
+            --section-bg: #0a0a0a;
+            --section-bg-alt: #0a0a0a;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --hover-bg: #1a1a1a;
+            --toggle-bg: #2a2a2a;
+            --toggle-active: #4a7fff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #3b82f6/60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation styles */
+        .nav-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-button {
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-button:hover {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: var(--toggle-bg);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .theme-toggle-slider {
+            transform: translateX(30px);
+            background-color: var(--toggle-active);
+        }
+
+        .theme-toggle-icon {
+            font-size: 12px;
+            color: var(--text-color);
+        }
+
+        /* Section styles */
+        .section-bg {
+            background-color: var(--section-bg);
+        }
+
+        .section-bg-alt {
+            background-color: var(--section-bg-alt);
+        }
+
+        .card-bg {
+            background-color: var(--card-bg);
+        }
+
+        .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        .border-custom {
+            border-color: var(--border-color);
+        }
+
+        .shadow-custom {
+            box-shadow: 0 1px 3px 0 var(--shadow-color);
+        }
+
+        .hover-bg:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            z-index: 40;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-menu a {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Dark mode specific styles */
+        [data-theme="dark"] .bg-gray-100 {
+            background-color: #0a0a0a;
+        }
+
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: #0a0a0a;
+        }
+
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .text-gray-700 {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .hover\:bg-gray-50:hover {
+            background-color: var(--hover-bg);
+        }
+
+        [data-theme="dark"] .border-gray-300 {
+            border-color: var(--border-color);
+        }
+
+        /* Ensure all sections use the dark background in dark mode */
+        [data-theme="dark"] section {
+            background-color: #0a0a0a !important;
+        }
+
+        [data-theme="dark"] .card-bg {
+            background-color: #0a0a0a !important;
+        }
+
+        [data-theme="dark"] .section-bg,
+        [data-theme="dark"] .section-bg-alt {
+            background-color: #0a0a0a !important;
+        }
+
+        /* Override any remaining light backgrounds */
+        [data-theme="dark"] .bg-white {
+            background-color: #0a0a0a !important;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full nav-bg backdrop-blur z-50 border-b border-custom">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="../index.html#hero" class="nav-button">Home</a>
+                    <a href="../index.html#about" class="nav-button">About</a>
+                    <a href="../index.html#skills" class="nav-button">Skills</a>
+                    <a href="../index.html#projects" class="nav-button">Projects</a>
+                    <a href="../index.html#experience" class="nav-button">Experience</a>
+                    <a href="../index.html#contact" class="nav-button">Contact</a>
+                    <div class="theme-toggle" id="theme-toggle">
+                        <div class="theme-toggle-slider">
+                            <i class="fas fa-sun theme-toggle-icon" id="theme-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center space-x-3">
+                    <div class="theme-toggle" id="theme-toggle-mobile">
+                        <div class="theme-toggle-slider">
+                            <i class="fas fa-sun theme-toggle-icon" id="theme-icon-mobile"></i>
+                        </div>
+                    </div>
+                    <button class="mobile-menu-button" id="mobile-menu-btn">Menu</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="../index.html#hero">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <!-- Project Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16 section-bg">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-8">📊 HR Analytics Dashboard</h1>
+                <p class="text-lg text-secondary mb-8 max-w-2xl mx-auto">
+                    An interactive Tableau dashboard that transforms raw employee data into actionable insights, helping organizations understand attrition patterns and make data-driven decisions to improve workforce retention.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        View Live Dashboard
+                    </a>
+                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover-bg transition-colors">
+                        Back to Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-20 px-4 section-bg-alt">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Story</h2>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📖 The Story Behind the Numbers</h3>
+                    <p class="text-secondary mb-4">
+                        Our story begins not with a single event, but with a number that flashed like an alarm on our company's dashboard: <strong>16.12%</strong>. This wasn't just a statistic; it was our Attrition Rate. It meant that in the recent period, <strong>237 out of our 1,470 valued employees</strong> had chosen to leave us. For any organization, this is a critical issue. It signifies lost knowledge, increased recruitment costs, and a potential dip in team morale. The leadership team asked a simple but profound question: "What is really happening here, and what can we do about it?" This HR Analytics Dashboard, built entirely in Tableau, became our map to find the answers.
+                    </p>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🔍 The Investigation - Where and Who?</h3>
+                    <p class="text-secondary mb-4">
+                        Our first step was to understand the landscape. We needed to pinpoint *where* the problem was most severe and *who* was most affected. Using Tableau's powerful visualization capabilities, we transformed raw employee data into clear, interactive charts that told a compelling story.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        <strong>The "Where" - A Departmental Divide:</strong> The departmental attrition pie chart immediately drew our attention. It wasn't a uniform exodus. The problem was concentrated. We saw that certain departments, like Sales and Research & Development, were bleeding talent at a much higher rate than others. This told us the issue wasn't company-wide, but localized, suggesting specific departmental cultures, workloads, or management styles could be at play.
+                    </p>
+                    <p class="text-secondary">
+                        <strong>The "Who" - A Generation in Motion:</strong> Next, we looked at our people. The age distribution chart showed a healthy mix, but the attrition data by age and gender told a more nuanced story. We discovered a significant trend: a large portion of those leaving were in the 26-35 age bracket. Furthermore, the gender breakdown revealed that women in this age group were leaving at a disproportionately high rate. This was a crucial clue. This is the segment of our workforce that is typically ambitious, building careers, and often juggling growing families. Their departure pointed to potential issues around career progression, work-life balance, or compensation equity.
+                    </p>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">💡 The "Why" - Uncovering the Root Causes</h3>
+                    <p class="text-secondary mb-4">
+                        Knowing *who* and *where* was only half the battle. The most important question was *why*. Two charts on our dashboard provided the missing pieces of the puzzle.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        <strong>A Cry for Satisfaction:</strong> The Job Satisfaction table was perhaps the most revealing. It gave a direct voice to the employee experience. We saw a stark contrast. Roles like "Healthcare Representative" had high satisfaction scores (around 3.8-4.0), while other roles, particularly those in our high-attrition departments, were struggling with scores as low as 1 or 2. This was a direct correlation. Low satisfaction wasn't just a feeling; it was a precursor to an employee's departure.
+                    </p>
+                    <p class="text-secondary">
+                        <strong>The Untapped Potential:</strong> The final chart, showing attrition by educational field, added another layer. Many of the employees who left had degrees in high-demand fields like Life Sciences and Technology. This suggested that our competitors might be offering more compelling opportunities, or that we weren't fully leveraging the specialized skills these individuals brought to the table. They weren't just leaving a job; they were leaving for what they perceived as a better career fit elsewhere.
+                    </p>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🚀 The Action Plan - From Insight to Intervention</h3>
+                    <p class="text-secondary mb-4">
+                        The story our data told was now clear. Our 16.12% attrition rate was not an unavoidable cost of doing business. It was a solvable problem, concentrated in specific areas, affecting a key demographic, and driven by low job satisfaction and a potential mismatch of skills.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        Based on this narrative, we formulated a targeted action plan:
+                    </p>
+                    <ul class="list-disc list-inside text-secondary mb-4">
+                        <li><strong>Deep-Dive into High-Risk Departments:</strong> We will launch "stay interviews" and focus groups in the Sales and R&D departments to understand the specific pain points behind their low satisfaction scores. Is it compensation, management, or lack of growth opportunities?</li>
+                        <li><strong>Empower Our Young Talent:</strong> For the 26-35 age group, especially women, we will introduce a mentorship program, review our flexible work policies, and conduct a pay equity audit to ensure we are competitive and fair.</li>
+                        <li><strong>Revamp Key Roles:</strong> For positions with chronically low satisfaction, we will conduct a job analysis to redefine roles, responsibilities, and career paths to make them more engaging and rewarding.</li>
+                        <li><strong>Proactive Talent Management:</strong> We will use this dashboard not as a rearview mirror, but as a GPS. By continuously monitoring satisfaction scores and employee engagement, we can identify at-risk talent *before* they decide to leave.</li>
+                    </ul>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🎨 Building the Dashboard with Tableau</h3>
+                    <p class="text-secondary mb-4">
+                        This entire dashboard was created using Tableau's powerful data visualization capabilities. The process involved:
+                    </p>
+                    <ul class="list-disc list-inside text-secondary mb-4">
+                        <li><strong>Data Connection:</strong> Connected to the employee dataset using Tableau's data source connectors</li>
+                        <li><strong>Data Preparation:</strong> Used Tableau's built-in data preparation tools to clean and structure the data</li>
+                        <li><strong>Visualization Design:</strong> Created multiple chart types (pie charts, bar charts, tables, donut charts) to represent different aspects of the data</li>
+                        <li><strong>Dashboard Layout:</strong> Arranged visualizations in a logical flow that tells the attrition story</li>
+                        <li><strong>Interactivity:</strong> Added filters and actions to allow users to explore the data dynamically</li>
+                        <li><strong>Calculations:</strong> Created calculated fields for metrics like attrition rate and satisfaction averages</li>
+                    </ul>
+                    <p class="text-secondary">
+                        Tableau's drag-and-drop interface made it possible to create this comprehensive dashboard without writing a single line of code, while still providing powerful analytical capabilities.
+                    </p>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🔧 Tech Stack & Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Tableau Desktop 📊</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Tableau Public 🌐</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Data Visualization 📈</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Interactive Dashboards 🖱️</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">HR Analytics 👥</span>
+                    </div>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📊 Key Metrics Visualized</h3>
+                    <p class="text-secondary mb-4">
+                        The dashboard provides a comprehensive view of our workforce through several key visualizations:
+                    </p>
+                    <ul class="list-disc list-inside text-secondary mb-4">
+                        <li><strong>Employee Count:</strong> Total workforce of 1,470 employees</li>
+                        <li><strong>Attrition Count:</strong> 237 employees who left during the analysis period</li>
+                        <li><strong>Active Employees:</strong> 1,233 current employees</li>
+                        <li><strong>Attrition Rate:</strong> 16.12% overall attrition rate</li>
+                        <li><strong>Average Age:</strong> 37 years across the organization</li>
+                        <li><strong>Departmental Attrition:</strong> Pie chart showing attrition distribution by department</li>
+                        <li><strong>Age Distribution:</strong> Bar chart displaying employee count by age groups</li>
+                        <li><strong>Job Satisfaction:</strong> Rating table for different positions (1-4 scale)</li>
+                        <li><strong>Educational Background:</strong> Bar chart showing attrition by education field</li>
+                        <li><strong>Demographic Analysis:</strong> Donut chart of attrition by age group and gender</li>
+                    </ul>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📌 Key Learnings</h3>
+                    <ul class="list-disc list-inside text-secondary">
+                        <li>✔️ How to transform raw HR data into actionable business insights using Tableau</li>
+                        <li>✔️ Techniques for identifying patterns in employee attrition through visualization</li>
+                        <li>✔️ Best practices for dashboard design in HR analytics</li>
+                        <li>✔️ How to connect data insights to strategic HR initiatives</li>
+                        <li>✔️ The importance of multi-dimensional analysis (department, age, gender, satisfaction)</li>
+                        <li>✔️ Creating interactive dashboards that enable stakeholders to explore data on their own</li>
+                    </ul>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🌟 Why This Project Matters</h3>
+                    <p class="text-secondary mb-4">
+                        This HR Analytics Dashboard demonstrates the power of data visualization in human resources. Built entirely with Tableau, it provides:
+                    </p>
+                    <ul class="list-disc list-inside text-secondary mb-4">
+                        <li>Early warning system for potential attrition hotspots</li>
+                        <li>Evidence-based insights for retention strategies</li>
+                        <li>Comprehensive view of workforce health and satisfaction</li>
+                        <li>Interactive exploration of HR data without technical barriers</li>
+                        <li>Accessible insights for HR professionals and leadership</li>
+                    </ul>
+                    <p class="text-secondary">
+                        It's a powerful tool for any organization looking to reduce turnover costs, improve employee satisfaction, and build a more engaged workforce through data-driven decision making.
+                    </p>
+                </div>
+
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Project Conclusion</h3>
+                    <p class="text-secondary mb-4">
+                        This HR Analytics Dashboard, created entirely in Tableau, transformed a worrying statistic into a clear, actionable story. It moved us from asking "What's our attrition rate?" to "How can we make our company a place where talented people want to build their careers?" The journey to reduce attrition has just begun, but now, we are navigating with a map, a compass, and a clear destination: a stronger, more engaged, and more stable workforce.
+                    </p>
+                    <p class="text-secondary">
+                        👉 If you find this project insightful, feel free to connect and discuss how Tableau can transform HR data into strategic insights!
+                    </p>
+                </div>
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom">
+                    <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
+                    <p class="text-secondary mb-4">
+                        Developed by <a href="https://www.linkedin.com/in/abdelrhman-haroun-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
+                    </p>
+                    <p class="text-secondary">
+                        👉 Explore the interactive dashboard on <a href="https://public.tableau.com/views/HRFullProject/HRAnalyticsDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="text-blue-600 hover:underline">Tableau Public</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-bg py-8 px-4 border-t border-custom">
+        <div class="container mx-auto text-center">
+            <p class="text-secondary">
+                © 2024 HR Analytics Dashboard. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update theme icon based on current theme
+        function updateThemeIcon() {
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeIconMobile.classList.remove('fa-sun');
+                themeIconMobile.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeIconMobile.classList.remove('fa-moon');
+                themeIconMobile.classList.add('fa-sun');
+            }
+        }
+        
+        // Initialize theme icon
+        updateThemeIcon();
+        
+        // Theme toggle functionality
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+        
+        // Mobile theme toggle
+        document.getElementById('theme-toggle-mobile').addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
