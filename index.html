@@ -78,101 +78,43 @@
             color: white;
             border-color: #3b82f6;
         }
-        
         /* Dark mode styles */
-        .dark {
-            background-color: #1f2937;
+        body.dark {
+            background-color: #111827;
             color: #f9fafb;
         }
         .dark .bg-white {
-            background-color: #374151;
-        }
-        .dark .bg-gray-50 {
-            background-color: #111827;
-        }
-        .dark .text-gray-600 {
-            color: #d1d5db;
-        }
-        .dark .border {
-            border-color: #4b5563;
-        }
-        .dark .bg-gray-100 {
-            background-color: #374151;
-            color: #f9fafb;
-        }
-        .dark .border-gray-300 {
-            border-color: #4b5563;
-        }
-        .dark .hover\:bg-gray-50:hover {
-            background-color: #4b5563;
-        }
-        .dark .shadow-sm {
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-        }
-        .dark .bg-blue-600 {
-            background-color: #2563eb;
-        }
-        .dark .hover\:bg-blue-700:hover {
-            background-color: #1d4ed8;
-        }
-        .dark .text-blue-600 {
-            color: #60a5fa;
-        }
-        .dark .hover\:text-blue-800:hover {
-            color: #93c5fd;
-        }
-        .dark .bg-blue-100 {
-            background-color: #1e3a8a;
-            color: #dbeafe;
-        }
-        .dark .text-blue-700 {
-            color: #dbeafe;
-        }
-        .dark .mobile-menu-button {
-            background-color: #374151;
-            color: #f9fafb;
-            border-color: #4b5563;
-        }
-        .dark .mobile-menu-button:hover {
-            background-color: #3b82f6;
-            color: white;
-            border-color: #3b82f6;
-        }
-        .dark .nav-button {
-            color: #f9fafb;
-            border-color: #4b5563;
-        }
-        .dark .nav-button:hover {
-            background-color: #3b82f6;
-            color: white;
-            border-color: #3b82f6;
-        }
-        .dark .pagination-btn {
-            color: #f9fafb;
-            border-color: #4b5563;
-        }
-        .dark .pagination-btn:hover {
-            background-color: #4b5563;
-        }
-        .dark .pagination-btn.active {
-            background-color: #3b82f6;
-            color: white;
-        }
-        .dark .aspect-video.bg-gray-100 {
-            background-color: #4b5563;
-        }
-        .dark .bg-gray-50 {
-            background-color: #111827;
+            background-color: #1f2937 !important;
         }
         .dark .bg-white\/95 {
-            background-color: rgba(55, 65, 81, 0.95);
+            background-color: rgba(31, 41, 55, 0.95) !important;
         }
-        .dark .border-b {
-            border-bottom-color: #4b5563;
+        .dark .bg-gray-50 {
+            background-color: #374151 !important;
         }
-        .dark footer {
-            background-color: #111827;
-            border-top-color: #4b5563;
+        .dark .bg-gray-100 {
+            background-color: #4b5563 !important;
+        }
+        .dark .text-gray-600 {
+            color: #d1d5db !important;
+        }
+        .dark .text-gray-700 {
+            color: #9ca3af !important;
+        }
+        .dark .border-gray-300 {
+            border-color: #4b5563 !important;
+        }
+        .dark .border {
+            border-color: #4b5563 !important;
+        }
+        .dark .hover\:bg-gray-50:hover {
+            background-color: #4b5563 !important;
+        }
+        .dark .hover\:bg-blue-100:hover {
+            background-color: #374151 !important;
+        }
+        .dark .text-gray-600.hover\:text-blue-600:hover {
+            color: #60a5fa !important;
         }
     </style>
 </head>
@@ -182,19 +124,18 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="text-2xl font-bold">Portfolio</div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#hero" class="nav-button">Home</a>
-                    <a href="#about" class="nav-button">About</a>
-                    <a href="#skills" class="nav-button">Skills</a>
-                    <a href="#projects" class="nav-button">Projects</a>
-                    <a href="#experience" class="nav-button">Experience</a>
-                    <!-- <a href="#certifications" class="nav-button">Certifications</a> -->
-                    <a href="#contact" class="nav-button">Contact</a>
-                </div>
                 <div class="flex items-center space-x-4">
-                    <!-- Dark/Light Mode Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-                        <i class="fas fa-moon text-gray-600"></i>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#hero" class="nav-button">Home</a>
+                        <a href="#about" class="nav-button">About</a>
+                        <a href="#skills" class="nav-button">Skills</a>
+                        <a href="#projects" class="nav-button">Projects</a>
+                        <a href="#experience" class="nav-button">Experience</a>
+                        <!-- <a href="#certifications" class="nav-button">Certifications</a> -->
+                        <a href="#contact" class="nav-button">Contact</a>
+                    </div>
+                    <button id="theme-toggle" type="button" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-moon"></i>
                     </button>
                     <button class="md:hidden mobile-menu-button">Menu</button>
                 </div>
@@ -453,7 +394,7 @@
                             </div>
                             <div class="p-6">
                                 <h3 class="text-lg font-semibold mb-2">Netflix Project</h3>
-                                <p class="text-gray-600 text-sm mb-4">This project is an interactive Power BI dashboard designed to analyze Netflix's movie and TV show catalog.</p>
+                                <p class="text-gray-600 text-sm mb-4">This project is an interactive Power BI dashboard designed to analyze Netflix’s movie and TV show catalog.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Power BI 🖥️</span>
                                     <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Data Cleaning 🛠️</span>
@@ -883,33 +824,24 @@
             });
         });
 
-        // Dark/Light Mode Toggle
+        // Dark mode toggle
         const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply the saved theme on page load
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+        const body = document.body;
+
+        // Check for saved theme or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
-        
-        // Toggle theme when button is clicked
+
+        // Toggle event
         themeToggle.addEventListener('click', () => {
-            if (document.body.classList.contains('dark')) {
-                document.body.classList.remove('dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.body.classList.add('dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'dark');
-            }
+            body.classList.toggle('dark');
+            const isDark = body.classList.contains('dark');
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.theme = isDark ? 'dark' : 'light';
         });
     </script>
 </body>
