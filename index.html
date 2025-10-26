@@ -23,18 +23,18 @@
         }
 
         [data-theme="dark"] {
-            --bg-color: #111827;
-            --text-color: #f9fafb;
-            --text-secondary: #9ca3af;
-            --border-color: #374151;
-            --card-bg: #1f2937;
-            --nav-bg: rgba(17, 24, 39, 0.95);
-            --section-bg: #111827;
-            --section-bg-alt: #1f2937;
-            --shadow-color: rgba(0, 0, 0, 0.3);
-            --hover-bg: #374151;
-            --toggle-bg: #374151;
-            --toggle-active: #60a5fa;
+            --bg-color: #0a0a0a;
+            --text-color: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --border-color: #2a2a2a;
+            --card-bg: #1a1a1a;
+            --nav-bg: rgba(10, 10, 10, 0.95);
+            --section-bg: #0a0a0a;
+            --section-bg-alt: #1a1a1a;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --hover-bg: #2a2a2a;
+            --toggle-bg: #2a2a2a;
+            --toggle-active: #4a7fff;
         }
 
         body {
@@ -243,6 +243,43 @@
 
         .mobile-menu a:hover {
             background-color: var(--hover-bg);
+        }
+
+        /* Dark mode specific styles */
+        [data-theme="dark"] .bg-gray-100 {
+            background-color: #1a1a1a;
+        }
+
+        [data-theme="dark"] .border-gray-300 {
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .text-gray-700 {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .hover\:bg-gray-50:hover {
+            background-color: var(--hover-bg);
+        }
+
+        [data-theme="dark"] .bg-blue-600 {
+            background-color: #2563eb;
+        }
+
+        [data-theme="dark"] .hover\:bg-blue-700:hover {
+            background-color: #1d4ed8;
+        }
+
+        [data-theme="dark"] .w-10.h-10.bg-gray-100 {
+            background-color: #2a2a2a;
+        }
+
+        [data-theme="dark"] .w-10.h-10.bg-gray-100:hover {
+            background-color: #3a3a3a;
         }
     </style>
 </head>
