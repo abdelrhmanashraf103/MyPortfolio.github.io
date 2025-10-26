@@ -27,12 +27,12 @@
             --text-color: #f0f0f0;
             --text-secondary: #b0b0b0;
             --border-color: #2a2a2a;
-            --card-bg: #1a1a1a;
+            --card-bg: #0a0a0a;
             --nav-bg: rgba(10, 10, 10, 0.95);
             --section-bg: #0a0a0a;
-            --section-bg-alt: #1a1a1a;
+            --section-bg-alt: #0a0a0a;
             --shadow-color: rgba(0, 0, 0, 0.5);
-            --hover-bg: #2a2a2a;
+            --hover-bg: #1a1a1a;
             --toggle-bg: #2a2a2a;
             --toggle-active: #4a7fff;
         }
@@ -247,7 +247,7 @@
 
         /* Dark mode specific styles */
         [data-theme="dark"] .bg-gray-100 {
-            background-color: #1a1a1a;
+            background-color: #0a0a0a;
         }
 
         [data-theme="dark"] .border-gray-300 {
@@ -275,11 +275,36 @@
         }
 
         [data-theme="dark"] .w-10.h-10.bg-gray-100 {
-            background-color: #2a2a2a;
+            background-color: #1a1a1a;
         }
 
         [data-theme="dark"] .w-10.h-10.bg-gray-100:hover {
-            background-color: #3a3a3a;
+            background-color: #2a2a2a;
+        }
+
+        /* Ensure all sections use the dark background in dark mode */
+        [data-theme="dark"] section {
+            background-color: #0a0a0a !important;
+        }
+
+        [data-theme="dark"] .card-bg {
+            background-color: #0a0a0a !important;
+        }
+
+        [data-theme="dark"] .section-bg,
+        [data-theme="dark"] .section-bg-alt {
+            background-color: #0a0a0a !important;
+        }
+
+        /* Override any remaining light backgrounds */
+        [data-theme="dark"] .bg-white,
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: #0a0a0a !important;
+        }
+
+        /* Dark mode for images containers */
+        [data-theme="dark"] .aspect-video {
+            background-color: #0a0a0a !important;
         }
     </style>
 </head>
