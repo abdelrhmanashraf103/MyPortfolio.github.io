@@ -7,50 +7,289 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --section-bg: #f9fafb;
+            --section-bg-alt: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --hover-bg: #f3f4f6;
+            --toggle-bg: #f3f4f6;
+            --toggle-active: #3b82f6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0a0a0a;
+            --text-color: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --border-color: #2a2a2a;
+            --card-bg: #0a0a0a;
+            --nav-bg: rgba(10, 10, 10, 0.95);
+            --section-bg: #0a0a0a;
+            --section-bg-alt: #0a0a0a;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --hover-bg: #1a1a1a;
+            --toggle-bg: #2a2a2a;
+            --toggle-active: #4a7fff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
         html {
             scroll-behavior: smooth;
         }
+
         .gradient-text {
             background: linear-gradient(to right, #3b82f6, #3b82f6/60);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Navigation styles */
+        .nav-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-button {
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-button:hover {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: var(--toggle-bg);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .theme-toggle-slider {
+            transform: translateX(30px);
+            background-color: var(--toggle-active);
+        }
+
+        .theme-toggle-icon {
+            font-size: 12px;
+            color: var(--text-color);
+        }
+
+        /* Section styles */
+        .section-bg {
+            background-color: var(--section-bg);
+        }
+
+        .section-bg-alt {
+            background-color: var(--section-bg-alt);
+        }
+
+        .card-bg {
+            background-color: var(--card-bg);
+        }
+
+        .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        .border-custom {
+            border-color: var(--border-color);
+        }
+
+        .shadow-custom {
+            box-shadow: 0 1px 3px 0 var(--shadow-color);
+        }
+
+        .hover-bg:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            z-index: 40;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-menu a {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Dark mode specific styles */
+        [data-theme="dark"] .bg-gray-100 {
+            background-color: #0a0a0a;
+        }
+
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: #0a0a0a;
+        }
+
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .text-gray-700 {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .hover\:bg-gray-50:hover {
+            background-color: var(--hover-bg);
+        }
+
+        [data-theme="dark"] .border-gray-300 {
+            border-color: var(--border-color);
+        }
+
+        /* Ensure all sections use the dark background in dark mode */
+        [data-theme="dark"] section {
+            background-color: #0a0a0a !important;
+        }
+
+        [data-theme="dark"] .card-bg {
+            background-color: #0a0a0a !important;
+        }
+
+        [data-theme="dark"] .section-bg,
+        [data-theme="dark"] .section-bg-alt {
+            background-color: #0a0a0a !important;
+        }
+
+        /* Override any remaining light backgrounds */
+        [data-theme="dark"] .bg-white {
+            background-color: #0a0a0a !important;
+        }
     </style>
 </head>
 <body class="bg-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur z-50 border-b">
+    <nav class="fixed top-0 w-full nav-bg backdrop-blur z-50 border-b border-custom">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="text-2xl font-bold">Portfolio</div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="../index.html#hero" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
-                    <a href="../index.html#about" class="text-sm font-medium text-gray-600 hover:text-blue-600">About</a>
-                    <a href="../index.html#skills" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skills</a>
-                    <a href="../index.html#projects" class="text-sm font-medium text-gray-600 hover:text-blue-600">Projects</a>
-                    <a href="../index.html#experience" class="text-sm font-medium text-gray-600 hover:text-blue-600">Experience</a>
-                    <a href="../index.html#certifications" class="text-sm font-medium text-gray-600 hover:text-blue-600">Certifications</a>
-                    <a href="../index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="../index.html#hero" class="nav-button">Home</a>
+                    <a href="../index.html#about" class="nav-button">About</a>
+                    <a href="../index.html#skills" class="nav-button">Skills</a>
+                    <a href="../index.html#projects" class="nav-button">Projects</a>
+                    <a href="../index.html#experience" class="nav-button">Experience</a>
+                    <!-- <a href="../index.html#certifications" class="nav-button">Certifications</a> -->
+                    <a href="../index.html#contact" class="nav-button">Contact</a>
+                    <div class="theme-toggle" id="theme-toggle">
+                        <div class="theme-toggle-slider">
+                            <i class="fas fa-sun theme-toggle-icon" id="theme-icon"></i>
+                        </div>
+                    </div>
                 </div>
-                <button class="md:hidden px-4 py-2 border rounded-md">Menu</button>
+                <div class="md:hidden flex items-center space-x-3">
+                    <div class="theme-toggle" id="theme-toggle-mobile">
+                        <div class="theme-toggle-slider">
+                            <i class="fas fa-sun theme-toggle-icon" id="theme-icon-mobile"></i>
+                        </div>
+                    </div>
+                    <button class="mobile-menu-button" id="mobile-menu-btn">Menu</button>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="../index.html#hero">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#certifications">Certifications</a>
+        <a href="../index.html#contact">Contact</a>
+    </div>
+
     <!-- Project Hero Section -->
-    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
+    <section class="min-h-screen flex items-center justify-center px-4 pt-16 section-bg">
         <div class="container mx-auto">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-3xl md:text-4xl font-bold mb-8">📈 Product Sales Dashboard</h1>
-                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                <p class="text-lg text-secondary mb-8 max-w-2xl mx-auto">
                     An interactive Power BI dashboard analyzing sales performance across 219 products and 93 customers, visualizing total sales, tax, freight, and customer behaviors.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="https://app.powerbi.com/links/2Q0qy0v0cf?ctid=a2c31985-cc3b-4e19-8fa2-59fa488f0c27&pbi_source=linkShare" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                         View Project
                     </a>
-                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                    <a href="../index.html#projects" class="border border-gray-300 px-8 py-3 rounded-lg font-medium hover-bg transition-colors">
                         Back to Projects
                     </a>
                 </div>
@@ -59,22 +298,22 @@
     </section>
 
     <!-- Project Details Section -->
-    <section class="py-20 px-4 bg-gray-50">
+    <section class="py-20 px-4 section-bg-alt">
         <div class="container mx-auto">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Project Details</h2>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
                     <h3 class="text-xl font-semibold mb-4">🚀 Project Overview</h3>
-                    <p class="text-gray-600 mb-4">
+                    <p class="text-secondary mb-4">
                         This project is an interactive <strong>Power BI dashboard</strong> designed to analyze detailed sales performance across products, customers, and regions. Developed as of September 2025, it consolidates product sales data, customer stats, tax, freight, and order status into a dynamic, multi-page dashboard. The goal is to provide a clear, real-time view of key sales metrics to assist analysts and decision-makers in tracking business health and performance.
                     </p>
-                    <p class="text-gray-600">
+                    <p class="text-secondary">
                         The dashboard includes data on <strong>219 products</strong> and <strong>93 customers</strong>, presenting total sales, tax, freight costs, and detailed customer purchase behaviors. It enables easy navigation between overview, product details, and customer-level insights.
                     </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
                     <h3 class="text-xl font-semibold mb-4">🔧 Tech Stack & Libraries</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Power BI 📊</span>
@@ -83,7 +322,7 @@
                         <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Line Charts 📉</span>
                         <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Treemaps 🌳</span>
                     </div>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul class="list-disc list-inside text-secondary">
                         <li>Power BI for advanced data visualization and dashboard construction</li>
                         <li>Interactive KPIs, bar charts, line charts, pie charts, and treemaps</li>
                         <li>Dynamic filters for order status, product categories, and time</li>
@@ -91,15 +330,15 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
                     <h3 class="text-xl font-semibold mb-4">📥 Data Workflow</h3>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul class="list-disc list-inside text-secondary">
                         <li><strong>Data Sourcing</strong>: Sourced from structured sales and customer datasets with complete transactional information.</li>
                         <li><strong>Transformation</strong>: Processes ensure data accuracy and consistency for robust visualizations.</li>
                         <li><strong>Dashboard Design</strong>: Designed multiple report pages: Main overview, Products sales analysis, and Details with deep-dives.</li>
                     </ul>
-                    <p class="text-gray-600 mt-4">Visual elements include:</p>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <p class="text-secondary mt-4">Visual elements include:</p>
+                    <ul class="list-disc list-inside text-secondary">
                         <li>✅ KPIs for total products, customers, tax amount, freight, and sales</li>
                         <li>✅ Sales and order count by product with dual-axis bar and line chart</li>
                         <li>✅ Customer sales ranking bar chart highlighting top purchasers</li>
@@ -110,9 +349,9 @@
                     <img src="images/product-sales-overview.png" alt="Product Sales Dashboard Overview" class="w-full h-auto rounded-lg shadow-sm mt-4">
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
                     <h3 class="text-xl font-semibold mb-4">📊 Usage and Insights</h3>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul class="list-disc list-inside text-secondary">
                         <li>Enables executives and analysts to monitor product and customer performance at different granularities.</li>
                         <li>Insights on order status trends and key customer contributions support targeted strategies.</li>
                         <li>Identifies product categories driving sales and quantities shipped.</li>
@@ -120,9 +359,9 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
                     <h3 class="text-xl font-semibold mb-4">📌 Key Learnings</h3>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul class="list-disc list-inside text-secondary">
                         <li>✔️ Effective use of Power BI visuals to communicate sales data</li>
                         <li>✔️ Implementing multi-page, interconnected dashboards for comprehensive exploration</li>
                         <li>✔️ Combining quantitative KPIs with qualitative filters and tooltips for enhanced user experience</li>
@@ -130,27 +369,27 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
                     <h3 class="text-xl font-semibold mb-4">⚠️ Notes</h3>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul class="list-disc list-inside text-secondary">
                         <li>The dashboard utilizes static data snapshots; live data integration is recommended for real-time insights.</li>
                         <li>Scalability and dynamic refresh features should be implemented for production environments.</li>
                     </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom mb-8">
                     <h3 class="text-xl font-semibold mb-4">🌟 Project Value</h3>
-                    <p class="text-gray-600">
+                    <p class="text-secondary">
                         This dashboard project showcases essential Business Intelligence skills applicable for retail, e-commerce, and sales performance analytics. It equips businesses to track financial metrics, customer habits, and product trends for optimized decision-making and resource allocation.
                     </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                <div class="card-bg p-6 rounded-lg shadow-custom border border-custom">
                     <h3 class="text-xl font-semibold mb-4">👨‍💻 Author</h3>
-                    <p class="text-gray-600 mb-4">
+                    <p class="text-secondary mb-4">
                         Developed by <a href="https://www.linkedin.com/in/abdelrhman-haroun-455aa930a/" target="_blank" class="text-blue-600 hover:underline">Abdelrahman Haroun</a>
                     </p>
-                    <p class="text-gray-600">
+                    <p class="text-secondary">
                         👉 If you like this project, give it a <a href="https://app.powerbi.com/links/2Q0qy0v0cf?ctid=a2c31985-cc3b-4e19-8fa2-59fa488f0c27&pbi_source=linkShare" target="_blank" class="text-blue-600 hover:underline">⭐ on GitHub</a>!
                     </p>
                 </div>
@@ -159,15 +398,73 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 py-8 px-4 border-t">
+    <footer class="section-bg py-8 px-4 border-t border-custom">
         <div class="container mx-auto text-center">
-            <p class="text-gray-600">
+            <p class="text-secondary">
                 © 2024 Abdelrahman Haroun. All rights reserved.
             </p>
         </div>
     </footer>
 
     <script>
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update theme icon based on current theme
+        function updateThemeIcon() {
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeIconMobile.classList.remove('fa-sun');
+                themeIconMobile.classList.add('fa-moon');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeIconMobile.classList.remove('fa-moon');
+                themeIconMobile.classList.add('fa-sun');
+            }
+        }
+        
+        // Initialize theme icon
+        updateThemeIcon();
+        
+        // Theme toggle functionality
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+        
+        // Mobile theme toggle
+        document.getElementById('theme-toggle-mobile').addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+            });
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
