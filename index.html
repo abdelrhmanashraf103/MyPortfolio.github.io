@@ -34,13 +34,6 @@
             background-color: #3b82f6;
             color: white;
         }
-        /* .certification-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .certification-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        } */
         /* New styles for navigation buttons */
         .nav-button {
             display: inline-block;
@@ -78,6 +71,68 @@
             color: white;
             border-color: #3b82f6;
         }
+        
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+        }
+        .dark-mode .bg-gray-50 {
+            background-color: #1a202c;
+        }
+        .dark-mode .text-gray-600 {
+            color: #cbd5e0;
+        }
+        .dark-mode .border {
+            border-color: #4a5568;
+        }
+        .dark-mode .border-b {
+            border-bottom-color: #4a5568;
+        }
+        .dark-mode .border-t {
+            border-top-color: #4a5568;
+        }
+        .dark-mode .bg-gray-100 {
+            background-color: #4a5568;
+            color: #e2e8f0;
+        }
+        .dark-mode .shadow-sm {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+        .dark-mode .hover\:bg-gray-50:hover {
+            background-color: #4a5568;
+        }
+        .dark-mode .mobile-menu-button {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            border-color: #4a5568;
+        }
+        .dark-mode .nav-button {
+            border-color: #4a5568;
+            color: #e2e8f0;
+        }
+        .dark-mode .hover\:bg-blue-100:hover {
+            background-color: #2c5282;
+        }
+        .dark-mode .bg-blue-600 {
+            background-color: #2b6cb0;
+        }
+        .dark-mode .hover\:bg-blue-700:hover {
+            background-color: #2c5282;
+        }
+        .dark-mode .dark-mode-toggle {
+            background-color: #4a5568;
+            color: #e2e8f0;
+            border-color: #4a5568;
+        }
+        .dark-mode .dark-mode-toggle:hover {
+            background-color: #2c5282;
+            color: white;
+            border-color: #2c5282;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -95,7 +150,12 @@
                     <!-- <a href="#certifications" class="nav-button">Certifications</a> -->
                     <a href="#contact" class="nav-button">Contact</a>
                 </div>
-                <button class="md:hidden mobile-menu-button">Menu</button>
+                <div class="flex items-center space-x-4">
+                    <button id="dark-mode-toggle" class="dark-mode-toggle px-4 py-2 rounded-lg border border-gray-300 transition-colors">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
+                    <button class="md:hidden mobile-menu-button">Menu</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -351,7 +411,7 @@
                             </div>
                             <div class="p-6">
                                 <h3 class="text-lg font-semibold mb-2">Netflix Project</h3>
-                                <p class="text-gray-600 text-sm mb-4">This project is an interactive Power BI dashboard designed to analyze Netflix’s movie and TV show catalog.</p>
+                                <p class="text-gray-600 text-sm mb-4">This project is an interactive Power BI dashboard designed to analyze Netflix's movie and TV show catalog.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Power BI 🖥️</span>
                                     <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Data Cleaning 🛠️</span>
@@ -779,6 +839,31 @@
                 });
                 this.classList.add('active');
             });
+        });
+
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or respect OS preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            } else {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            }
         });
     </script>
 </body>
