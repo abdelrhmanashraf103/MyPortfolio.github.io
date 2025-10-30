@@ -232,6 +232,462 @@
         [data-theme="dark"] .bg-white {
             background-color: #0a0a0a !important;
         }
+
+        /* Profile photo styles */
+        .profile-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #3b82f6;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Name decoration styles */
+        .name-decoration {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .name-decoration::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            border-radius: 2px;
+        }
+
+        /* Animated name styles */
+        .animated-name {
+            display: inline-block;
+            position: relative;
+        }
+
+        .animated-name span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .name-letter {
+            display: inline-block;
+            position: relative;
+        }
+
+        .name-letter:hover {
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .gradient-shift {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .wave-text {
+            display: inline-block;
+        }
+
+        .wave-text span {
+            display: inline-block;
+            animation: wave 1.5s ease-in-out infinite;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            border-right: 0.15em solid #3b82f6;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
+        }
+
+        .glitch {
+            position: relative;
+            color: white;
+            font-size: 2em;
+            letter-spacing: 0.5em;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: #00ffff;
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #ff00ff;
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0% {
+                clip: rect(132px, 350px, 101px, 30px);
+            }
+            5% {
+                clip: rect(25px, 450px, 130px, 0px);
+            }
+            10% {
+                clip: rect(50px, 350px, 80px, 30px);
+            }
+            15% {
+                clip: rect(80px, 450px, 120px, 10px);
+            }
+            20% {
+                clip: rect(20px, 350px, 50px, 40px);
+            }
+            25% {
+                clip: rect(60px, 450px, 90px, 20px);
+            }
+            30% {
+                clip: rect(90px, 350px, 110px, 0px);
+            }
+            35% {
+                clip: rect(30px, 450px, 70px, 30px);
+            }
+            40% {
+                clip: rect(70px, 350px, 100px, 10px);
+            }
+            45% {
+                clip: rect(10px, 450px, 40px, 20px);
+            }
+            50% {
+                clip: rect(100px, 350px, 130px, 0px);
+            }
+            55% {
+                clip: rect(40px, 450px, 60px, 30px);
+            }
+            60% {
+                clip: rect(110px, 350px, 140px, 10px);
+            }
+            65% {
+                clip: rect(15px, 450px, 45px, 20px);
+            }
+            70% {
+                clip: rect(85px, 350px, 115px, 0px);
+            }
+            75% {
+                clip: rect(35px, 450px, 65px, 30px);
+            }
+            80% {
+                clip: rect(95px, 350px, 125px, 10px);
+            }
+            85% {
+                clip: rect(5px, 450px, 35px, 20px);
+            }
+            90% {
+                clip: rect(75px, 350px, 105px, 0px);
+            }
+            95% {
+                clip: rect(25px, 450px, 55px, 30px);
+            }
+            100% {
+                clip: rect(105px, 350px, 135px, 10px);
+            }
+        }
+
+        @keyframes glitch-2 {
+            0% {
+                clip: rect(65px, 350px, 119px, 30px);
+            }
+            5% {
+                clip: rect(95px, 450px, 145px, 0px);
+            }
+            10% {
+                clip: rect(15px, 350px, 45px, 30px);
+            }
+            15% {
+                clip: rect(125px, 450px, 155px, 10px);
+            }
+            20% {
+                clip: rect(75px, 350px, 105px, 40px);
+            }
+            25% {
+                clip: rect(35px, 450px, 65px, 20px);
+            }
+            30% {
+                clip: rect(115px, 350px, 145px, 0px);
+            }
+            35% {
+                clip: rect(55px, 450px, 85px, 30px);
+            }
+            40% {
+                clip: rect(5px, 350px, 35px, 10px);
+            }
+            45% {
+                clip: rect(145px, 450px, 175px, 20px);
+            }
+            50% {
+                clip: rect(25px, 350px, 55px, 0px);
+            }
+            55% {
+                clip: rect(135px, 450px, 165px, 30px);
+            }
+            60% {
+                clip: rect(45px, 350px, 75px, 10px);
+            }
+            65% {
+                clip: rect(155px, 450px, 185px, 20px);
+            }
+            70% {
+                clip: rect(85px, 350px, 115px, 0px);
+            }
+            75% {
+                clip: rect(65px, 450px, 95px, 30px);
+            }
+            80% {
+                clip: rect(105px, 350px, 135px, 10px);
+            }
+            85% {
+                clip: rect(125px, 450px, 155px, 20px);
+            }
+            90% {
+                clip: rect(15px, 350px, 45px, 0px);
+            }
+            95% {
+                clip: rect(145px, 450px, 175px, 30px);
+            }
+            100% {
+                clip: rect(35px, 350px, 65px, 10px);
+            }
+        }
+
+        @keyframes glitch-skew {
+            0% {
+                transform: skew(0deg);
+            }
+            20% {
+                transform: skew(2deg);
+            }
+            40% {
+                transform: skew(-2deg);
+            }
+            60% {
+                transform: skew(1deg);
+            }
+            80% {
+                transform: skew(-1deg);
+            }
+            100% {
+                transform: skew(0deg);
+            }
+        }
+
+        .neon-glow {
+            color: #fff;
+            text-shadow: 
+                0 0 10px #3b82f6,
+                0 0 20px #3b82f6,
+                0 0 30px #3b82f6,
+                0 0 40px #8b5cf6,
+                0 0 70px #8b5cf6,
+                0 0 80px #8b5cf6,
+                0 0 100px #8b5cf6,
+                0 0 150px #8b5cf6;
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+
+        @keyframes neon-flicker {
+            0%, 100% {
+                text-shadow: 
+                    0 0 10px #3b82f6,
+                    0 0 20px #3b82f6,
+                    0 0 30px #3b82f6,
+                    0 0 40px #8b5cf6,
+                    0 0 70px #8b5cf6,
+                    0 0 80px #8b5cf6,
+                    0 0 100px #8b5cf6,
+                    0 0 150px #8b5cf6;
+            }
+            50% {
+                text-shadow: 
+                    0 0 5px #3b82f6,
+                    0 0 10px #3b82f6,
+                    0 0 15px #3b82f6,
+                    0 0 20px #8b5cf6,
+                    0 0 35px #8b5cf6,
+                    0 0 40px #8b5cf6,
+                    0 0 50px #8b5cf6,
+                    0 0 75px #8b5cf6;
+            }
+        }
+
+        .rotate-3d {
+            perspective: 1000px;
+        }
+
+        .rotate-3d span {
+            display: inline-block;
+            animation: rotate-3d 4s infinite;
+            transform-style: preserve-3d;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        @keyframes rotate-3d {
+            0%, 100% {
+                transform: rotateY(0);
+            }
+            50% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .flip-text {
+            display: inline-block;
+            perspective: 1000px;
+        }
+
+        .flip-text span {
+            display: inline-block;
+            animation: flip 2s infinite;
+            animation-delay: calc(0.1s * var(--i));
+            transform-style: preserve-3d;
+        }
+
+        @keyframes flip {
+            0%, 100% {
+                transform: rotateX(0);
+            }
+            50% {
+                transform: rotateX(360deg);
+            }
+        }
+
+        .name-animation-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .name-animation-options {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            display: flex;
+            gap: 5px;
+            background-color: var(--card-bg);
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            z-index: 10;
+        }
+
+        .animation-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--toggle-bg);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .animation-option:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .animation-option.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        @keyframes particle-animation {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) scale(1);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -239,7 +695,10 @@
     <nav class="fixed top-0 w-full nav-bg backdrop-blur z-50 border-b border-custom">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold">Portfolio</div>
+                <div class="flex items-center space-x-3">
+                    <img src="images/haroun.png" alt="Abdelrahman Haroun" class="profile-photo">
+                    <div class="text-2xl font-bold">Portfolio</div>
+                </div>
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="../../index.html#hero" class="nav-button">Home</a>
                     <a href="../../index.html#about" class="nav-button">About</a>
@@ -281,7 +740,20 @@
     <section class="min-h-screen flex items-center justify-center px-4 pt-16 section-bg">
         <div class="container mx-auto">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-8">📊 YouTube Channel Analytics Project</h1>
+                <div class="name-animation-container">
+                    <div class="name-animation-options">
+                        <div class="animation-option active" data-animation="gradient" title="Gradient">G</div>
+                        <div class="animation-option" data-animation="wave" title="Wave">W</div>
+                        <div class="animation-option" data-animation="typing" title="Typing">T</div>
+                        <div class="animation-option" data-animation="glitch" title="Glitch">L</div>
+                        <div class="animation-option" data-animation="neon" title="Neon">N</div>
+                        <div class="animation-option" data-animation="rotate" title="3D Rotate">R</div>
+                        <div class="animation-option" data-animation="flip" title="Flip">F</div>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-8" id="animated-name">
+                        <span class="gradient-shift" id="name-text">📊 YouTube Channel Analytics Project</span>
+                    </h1>
+                </div>
                 <p class="text-lg text-secondary mb-8 max-w-2xl mx-auto">
                     A data analytics project using the YouTube Data API v3 to analyze popular data science & analytics creators, with visualizations created using Python, Pandas, Matplotlib, and Seaborn.
                 </p>
@@ -548,6 +1020,139 @@
                 }
             });
         });
+
+        // Name animation functionality
+        const nameText = document.getElementById('name-text');
+        const name = "📊 YouTube Channel Analytics Project";
+        const animationOptions = document.querySelectorAll('.animation-option');
+        let currentAnimation = 'gradient';
+        
+        // Initialize with gradient animation
+        applyAnimation('gradient');
+        
+        // Add click event to animation options
+        animationOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const animation = this.getAttribute('data-animation');
+                
+                // Update active option
+                animationOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Apply selected animation
+                applyAnimation(animation);
+                currentAnimation = animation;
+            });
+        });
+        
+        function applyAnimation(animation) {
+            // Clear existing content and classes
+            nameText.innerHTML = '';
+            nameText.className = '';
+            
+            switch(animation) {
+                case 'gradient':
+                    nameText.className = 'gradient-shift';
+                    nameText.textContent = name;
+                    break;
+                    
+                case 'wave':
+                    nameText.className = 'wave-text';
+                    for (let i = 0; i < name.length; i++) {
+                        const span = document.createElement('span');
+                        span.textContent = name[i] === ' ' ? '\u00A0' : name[i];
+                        span.style.setProperty('--i', i);
+                        nameText.appendChild(span);
+                    }
+                    break;
+                    
+                case 'typing':
+                    nameText.className = 'typing-effect';
+                    nameText.textContent = name;
+                    break;
+                    
+                case 'glitch':
+                    nameText.className = 'glitch';
+                    nameText.textContent = name;
+                    nameText.setAttribute('data-text', name);
+                    break;
+                    
+                case 'neon':
+                    nameText.className = 'neon-glow';
+                    nameText.textContent = name;
+                    break;
+                    
+                case 'rotate':
+                    nameText.className = 'rotate-3d';
+                    for (let i = 0; i < name.length; i++) {
+                        const span = document.createElement('span');
+                        span.textContent = name[i] === ' ' ? '\u00A0' : name[i];
+                        span.style.setProperty('--i', i);
+                        nameText.appendChild(span);
+                    }
+                    break;
+                    
+                case 'flip':
+                    nameText.className = 'flip-text';
+                    for (let i = 0; i < name.length; i++) {
+                        const span = document.createElement('span');
+                        span.textContent = name[i] === ' ' ? '\u00A0' : name[i];
+                        span.style.setProperty('--i', i);
+                        nameText.appendChild(span);
+                    }
+                    break;
+                    
+                default:
+                    nameText.className = 'gradient-shift';
+                    nameText.textContent = name;
+            }
+        }
+        
+        // Create particle effect on name hover
+        const nameContainer = document.querySelector('.name-animation-container');
+        
+        nameContainer.addEventListener('mousemove', function(e) {
+            if (currentAnimation === 'gradient' || currentAnimation === 'neon') {
+                createParticle(e.clientX, e.clientY);
+            }
+        });
+        
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random size between 5px and 15px
+            const size = Math.random() * 10 + 5;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position relative to mouse
+            const offsetX = (Math.random() - 0.5) * 50;
+            const offsetY = (Math.random() - 0.5) * 50;
+            
+            // Set initial position
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            
+            // Set CSS variables for animation
+            particle.style.setProperty('--x', `${offsetX}px`);
+            particle.style.setProperty('--y', `${offsetY}px`);
+            
+            // Random color
+            const colors = ['#3b82f6', '#8b5cf6', '#ec4899'];
+            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Add animation
+            particle.style.animation = 'particle-animation 1s ease-out forwards';
+            
+            // Add to DOM
+            document.body.appendChild(particle);
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        }
     </script>
 </body>
 </html>
