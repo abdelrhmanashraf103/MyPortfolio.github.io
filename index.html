@@ -20,9 +20,6 @@
             --hover-bg: #f3f4f6;
             --toggle-bg: #f3f4f6;
             --toggle-active: #3b82f6;
-            --holo-primary: #3b82f6;
-            --holo-secondary: #8b5cf6;
-            --holo-tertiary: #ec4899;
         }
 
         [data-theme="dark"] {
@@ -38,9 +35,6 @@
             --hover-bg: #1a1a1a;
             --toggle-bg: #2a2a2a;
             --toggle-active: #4a7fff;
-            --holo-primary: #4a7fff;
-            --holo-secondary: #9d4fff;
-            --holo-tertiary: #ff4a9d;
         }
 
         body {
@@ -49,6 +43,184 @@
             transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
             position: relative;
+        }
+
+        /* تأثيرات الهولوغرام في الخلفية */
+        .hologram-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.6;
+        }
+
+        .hologram-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            filter: blur(40px);
+            animation: float 20s infinite linear;
+        }
+
+        .hologram-shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1));
+        }
+
+        .hologram-shape:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+            animation-duration: 25s;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.15));
+        }
+
+        .hologram-shape:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            bottom: 10%;
+            left: 20%;
+            animation-delay: -10s;
+            animation-duration: 30s;
+            background: linear-gradient(45deg, rgba(236, 72, 153, 0.1), rgba(59, 130, 246, 0.15));
+        }
+
+        .hologram-shape:nth-child(4) {
+            width: 350px;
+            height: 350px;
+            top: 20%;
+            right: 20%;
+            animation-delay: -15s;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1));
+        }
+
+        .hologram-shape:nth-child(5) {
+            width: 200px;
+            height: 200px;
+            bottom: 30%;
+            left: 5%;
+            animation-delay: -7s;
+            animation-duration: 35s;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1));
+        }
+
+        .hologram-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        .hologram-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+            animation: scanLine 8s linear infinite;
+            width: 100%;
+        }
+
+        .hologram-line:nth-child(1) {
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .hologram-line:nth-child(2) {
+            top: 50%;
+            animation-delay: -2s;
+        }
+
+        .hologram-line:nth-child(3) {
+            top: 80%;
+            animation-delay: -4s;
+        }
+
+        .hologram-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(59, 130, 246, 0.5);
+            border-radius: 50%;
+            animation: particleFloat 15s infinite linear;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(10vw, 5vh) rotate(90deg);
+            }
+            50% {
+                transform: translate(5vw, 10vh) rotate(180deg);
+            }
+            75% {
+                transform: translate(-5vw, 8vh) rotate(270deg);
+            }
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        @keyframes scanLine {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        /* إنشاء جسيمات عشوائية */
+        .hologram-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         html {
@@ -64,7 +236,6 @@
 
         .skill-icon {
             width: 24px;
-           18px;
             height: 24px;
             display: inline-flex;
             align-items: center;
@@ -85,6 +256,7 @@
             color: white;
         }
 
+        /* Navigation styles */
         .nav-button {
             display: inline-block;
             padding: 0.5rem 1rem;
@@ -130,6 +302,7 @@
             border-color: #3b82f6;
         }
 
+        /* Dark mode toggle */
         .theme-toggle {
             position: relative;
             width: 60px;
@@ -165,6 +338,7 @@
             color: var(--text-color);
         }
 
+        /* Section styles */
         .section-bg {
             background-color: var(--section-bg);
         }
@@ -193,6 +367,7 @@
             background-color: var(--hover-bg);
         }
 
+        /* Form styles */
         .form-input {
             background-color: var(--card-bg);
             border-color: var(--border-color);
@@ -204,11 +379,13 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
+        /* Badge styles */
         .badge {
             background-color: var(--toggle-bg);
             color: var(--text-secondary);
         }
 
+        /* Project card hover effect */
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -218,6 +395,7 @@
             box-shadow: 0 10px 20px var(--shadow-color);
         }
 
+        /* Mobile menu */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -247,6 +425,7 @@
             background-color: var(--hover-bg);
         }
 
+        /* Dark mode specific styles */
         [data-theme="dark"] .bg-gray-100 {
             background-color: #0a0a0a;
         }
@@ -283,6 +462,7 @@
             background-color: #2a2a2a;
         }
 
+        /* Ensure all sections use the dark background in dark mode */
         [data-theme="dark"] section {
             background-color: #0a0a0a !important;
         }
@@ -296,15 +476,18 @@
             background-color: #0a0a0a !important;
         }
 
+        /* Override any remaining light backgrounds */
         [data-theme="dark"] .bg-white,
         [data-theme="dark"] .bg-gray-50 {
             background-color: #0a0a0a !important;
         }
 
+        /* Dark mode for images containers */
         [data-theme="dark"] .aspect-video {
             background-color: #0a0a0a !important;
         }
 
+        /* Name decoration styles */
         .name-decoration {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
             -webkit-background-clip: text;
@@ -326,6 +509,7 @@
             border-radius: 2px;
         }
 
+        /* Profile photo styles */
         .profile-photo {
             width: 40px;
             height: 40px;
@@ -339,6 +523,7 @@
             transform: scale(1.05);
         }
 
+        /* Animated name styles */
         .animated-name {
             display: inline-block;
             position: relative;
@@ -407,60 +592,156 @@
         }
 
         @keyframes glitch-1 {
-            0% { clip: rect(132px, 350px, 101px, 30px); }
-            5% { clip: rect(25px, 450px, 130px, 0px); }
-            10% { clip: rect(50px, 350px, 80px, 30px); }
-            15% { clip: rect(80px, 450px, 120px, 10px); }
-            20% { clip: rect(20px, 350px, 50px, 40px); }
-            25% { clip: rect(60px, 450px, 90px, 20px); }
-            30% { clip: rect(90px, 350px, 110px, 0px); }
-            35% { clip: rect(30px, 450px, 70px, 30px); }
-            40% { clip: rect(70px, 350px, 100px, 10px); }
-            45% { clip: rect(10px, 450px, 40px, 20px); }
-            50% { clip: rect(100px, 350px, 130px, 0px); }
-            55% { clip: rect(40px, 450px, 60px, 30px); }
-            60% { clip: rect(110px, 350px, 140px, 10px); }
-            65% { clip: rect(15px, 450px, 45px, 20px); }
-            70% { clip: rect(85px, 350px, 115px, 0px); }
-            75% { clip: rect(35px, 450px, 65px, 30px); }
-            80% { clip: rect(95px, 350px, 125px, 10px); }
-            85% { clip: rect(5px, 450px, 35px, 20px); }
-            90% { clip: rect(75px, 350px, 105px, 0px); }
-            95% { clip: rect(25px, 450px, 55px, 30px); }
-            100% { clip: rect(105px, 350px, 135px, 10px); }
+            0% {
+                clip: rect(132px, 350px, 101px, 30px);
+            }
+            5% {
+                clip: rect(25px, 450px, 130px, 0px);
+            }
+            10% {
+                clip: rect(50px, 350px, 80px, 30px);
+            }
+            15% {
+                clip: rect(80px, 450px, 120px, 10px);
+            }
+            20% {
+                clip: rect(20px, 350px, 50px, 40px);
+            }
+            25% {
+                clip: rect(60px, 450px, 90px, 20px);
+            }
+            30% {
+                clip: rect(90px, 350px, 110px, 0px);
+            }
+            35% {
+                clip: rect(30px, 450px, 70px, 30px);
+            }
+            40% {
+                clip: rect(70px, 350px, 100px, 10px);
+            }
+            45% {
+                clip: rect(10px, 450px, 40px, 20px);
+            }
+            50% {
+                clip: rect(100px, 350px, 130px, 0px);
+            }
+            55% {
+                clip: rect(40px, 450px, 60px, 30px);
+            }
+            60% {
+                clip: rect(110px, 350px, 140px, 10px);
+            }
+            65% {
+                clip: rect(15px, 450px, 45px, 20px);
+            }
+            70% {
+                clip: rect(85px, 350px, 115px, 0px);
+            }
+            75% {
+                clip: rect(35px, 450px, 65px, 30px);
+            }
+            80% {
+                clip: rect(95px, 350px, 125px, 10px);
+            }
+            85% {
+                clip: rect(5px, 450px, 35px, 20px);
+            }
+            90% {
+                clip: rect(75px, 350px, 105px, 0px);
+            }
+            95% {
+                clip: rect(25px, 450px, 55px, 30px);
+            }
+            100% {
+                clip: rect(105px, 350px, 135px, 10px);
+            }
         }
 
         @keyframes glitch-2 {
-            0% { clip: rect(65px, 350px, 119px, 30px); }
-            5% { clip: rect(95px, 450px, 145px, 0px); }
-            10% { clip: rect(15px, 350px, 45px, 30px); }
-            15% { clip: rect(125px, 450px, 155px, 10px); }
-            20% { clip: rect(75px, 350px, 105px, 40px); }
-            25% { clip: rect(35px, 450px, 65px, 20px); }
-            30% { clip: rect(115px, 350px, 145px, 0px); }
-            35% { clip: rect(55px, 450px, 85px, 30px); }
-            40% { clip: rect(5px, 350px, 35px, 10px); }
-            45% { clip: rect(145px, 450px, 175px, 20px); }
-            50% { clip: rect(25px, 350px, 55px, 0px); }
-            55% { clip: rect(135px, 450px, 165px, 30px); }
-            60% { clip: rect(45px, 350px, 75px, 10px); }
-            65% { clip: rect(155px, 450px, 185px, 20px); }
-            70% { clip: rect(85px, 350px, 115px, 0px); }
-            75% { clip: rect(65px, 450px, 95px, 30px); }
-            80% { clip: rect(105px, 350px, 135px, 10px); }
-            85% { clip: rect(125px, 450px, 155px, 20px); }
-            90% { clip: rect(15px, 350px, 45px, 0px); }
-            95% { clip: rect(145px, 450px, 175px, 30px); }
-            100% { clip: rect(35px, 350px, 65px, 10px); }
+            0% {
+                clip: rect(65px, 350px, 119px, 30px);
+            }
+            5% {
+                clip: rect(95px, 450px, 145px, 0px);
+            }
+            10% {
+                clip: rect(15px, 350px, 45px, 30px);
+            }
+            15% {
+                clip: rect(125px, 450px, 155px, 10px);
+            }
+            20% {
+                clip: rect(75px, 350px, 105px, 40px);
+            }
+            25% {
+                clip: rect(35px, 450px, 65px, 20px);
+            }
+            30% {
+                clip: rect(115px, 350px, 145px, 0px);
+            }
+            35% {
+                clip: rect(55px, 450px, 85px, 30px);
+            }
+            40% {
+                clip: rect(5px, 350px, 35px, 10px);
+            }
+            45% {
+                clip: rect(145px, 450px, 175px, 20px);
+            }
+            50% {
+                clip: rect(25px, 350px, 55px, 0px);
+            }
+            55% {
+                clip: rect(135px, 450px, 165px, 30px);
+            }
+            60% {
+                clip: rect(45px, 350px, 75px, 10px);
+            }
+            65% {
+                clip: rect(155px, 450px, 185px, 20px);
+            }
+            70% {
+                clip: rect(85px, 350px, 115px, 0px);
+            }
+            75% {
+                clip: rect(65px, 450px, 95px, 30px);
+            }
+            80% {
+                clip: rect(105px, 350px, 135px, 10px);
+            }
+            85% {
+                clip: rect(125px, 450px, 155px, 20px);
+            }
+            90% {
+                clip: rect(15px, 350px, 45px, 0px);
+            }
+            95% {
+                clip: rect(145px, 450px, 175px, 30px);
+            }
+            100% {
+                clip: rect(35px, 350px, 65px, 10px);
+            }
         }
 
         @keyframes glitch-skew {
-            0% { transform: skew(0deg); }
-            20% { transform: skew(2deg); }
-            40% { transform: skew(-2deg); }
-            60% { transform: skew(1deg); }
-            80% { transform: skew(-1deg); }
-            100% { transform: skew(0deg); }
+            0% {
+                transform: skew(0deg);
+            }
+            20% {
+                transform: skew(2deg);
+            }
+            40% {
+                transform: skew(-2deg);
+            }
+            60% {
+                transform: skew(1deg);
+            }
+            80% {
+                transform: skew(-1deg);
+            }
+            100% {
+                transform: skew(0deg);
+            }
         }
 
         .typing-effect {
@@ -491,8 +772,12 @@
         }
 
         @keyframes wave {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         .gradient-shift {
@@ -505,9 +790,15 @@
         }
 
         @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .neon-glow {
@@ -561,8 +852,28 @@
         }
 
         @keyframes rotate-3d {
-            0%, 100% { transform: rotateY(0); }
-            50% { transform: rotateY(360deg); }
+            0%, 100% {
+                transform: rotateY(0);
+            }
+            50% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .morph-text {
+            display: inline-block;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                transform: rotate(0deg);
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+                transform: rotate(180deg);
+            }
         }
 
         .flip-text {
@@ -578,8 +889,12 @@
         }
 
         @keyframes flip {
-            0%, 100% { transform: rotateX(0); }
-            50% { transform: rotateX(360deg); }
+            0%, 100% {
+                transform: rotateX(0);
+            }
+            50% {
+                transform: rotateX(360deg);
+            }
         }
 
         .name-animation-container {
@@ -643,180 +958,21 @@
                 opacity: 0;
             }
         }
-
-        /* Holographic Background Styles */
-        .hologram-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        [data-theme="dark"] .hologram-background {
-            background: radial-gradient(circle at center, rgba(74, 127, 255, 0.05) 0%, transparent 50%);
-        }
-
-        .holo-shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(20px);
-            animation: holo-float 20s infinite ease-in-out;
-            box-shadow: 
-                0 0 20px var(--holo-primary),
-                0 0 40px var(--holo-secondary),
-                0 0 60px var(--holo-tertiary);
-            opacity: 0.3;
-            mix-blend-mode: screen;
-        }
-
-        .holo-shape:nth-child(1) {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            left: 20%;
-            background: linear-gradient(45deg, var(--holo-primary), var(--holo-secondary));
-            animation-duration: 25s;
-            animation-delay: 0s;
-        }
-
-        .holo-shape:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 50%;
-            left: 70%;
-            background: linear-gradient(135deg, var(--holo-secondary), var(--holo-tertiary));
-            animation-duration: 30s;
-            animation-delay: -5s;
-        }
-
-        .holo-shape:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            top: 70%;
-            left: 40%;
-            background: linear-gradient(225deg, var(--holo-tertiary), var(--holo-primary));
-            animation-duration: 35s;
-            animation-delay: -10s;
-        }
-
-        .holo-shape:nth-child(4) {
-            width: 180px;
-            height: 180px;
-            top: 30%;
-            left: 80%;
-            background: linear-gradient(315deg, var(--holo-primary), var(--holo-tertiary));
-            animation-duration: 28s;
-            animation-delay: -15s;
-        }
-
-        .holo-shape:nth-child(5) {
-            width: 220px;
-            height: 220px;
-            top: 80%;
-            left: 10%;
-            background: linear-gradient(90deg, var(--holo-secondary), var(--holo-primary));
-            animation-duration: 32s;
-            animation-delay: -20s;
-        }
-
-        @keyframes holo-float {
-            0% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
-                opacity: 0.3;
-            }
-            25% {
-                transform: translate(50px, -50px) rotate(90deg) scale(1.1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: translate(-50px, 50px) rotate(180deg) scale(0.9);
-                opacity: 0.3;
-            }
-            75% {
-                transform: translate(30px, 30px) rotate(270deg) scale(1.05);
-                opacity: 0.4;
-            }
-            100% {
-                transform: translate(0, 0) rotate(360deg) scale(1);
-                opacity: 0.3;
-            }
-        }
-
-        .holo-scan-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent 0%,
-                rgba(255, 255, 255, 0.05) 1px,
-                transparent 2px
-            );
-            animation: scan-lines 5s linear infinite;
-            opacity: 0.1;
-            mix-blend-mode: overlay;
-        }
-
-        @keyframes scan-lines {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 100px; }
-        }
-
-        .holo-particle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: var(--holo-primary);
-            border-radius: 50%;
-            animation: particle-drift 10s infinite linear;
-            filter: blur(2px);
-            box-shadow: 0 0 10px var(--holo-primary);
-            opacity: 0;
-        }
-
-        @keyframes particle-drift {
-            0% {
-                opacity: 0;
-                transform: translateY(0) scale(0);
-            }
-            10% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) scale(1.5);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .holo-shape {
-                width: 100px !important;
-                height: 100px !important;
-            }
-            .hologram-background {
-                opacity: 0.5;
-            }
-        }
     </style>
 </head>
 <body class="bg-white">
-    <!-- Holographic Background Container -->
-    <div class="hologram-background">
-        <div class="holo-shape"></div>
-        <div class="holo-shape"></div>
-        <div class="holo-shape"></div>
-        <div class="holo-shape"></div>
-        <div class="holo-shape"></div>
-        <div class="holo-scan-lines"></div>
+    <!-- تأثيرات الهولوغرام في الخلفية -->
+    <div class="hologram-bg">
+        <div class="hologram-shape"></div>
+        <div class="hologram-shape"></div>
+        <div class="hologram-shape"></div>
+        <div class="hologram-shape"></div>
+        <div class="hologram-shape"></div>
+        <div class="hologram-grid"></div>
+        <div class="hologram-line"></div>
+        <div class="hologram-line"></div>
+        <div class="hologram-line"></div>
+        <div class="hologram-particles" id="hologram-particles"></div>
     </div>
 
     <!-- Navigation -->
@@ -1363,28 +1519,28 @@
                             </div>
                         </div>
                         <div class="card-bg rounded-lg shadow-custom border border-custom overflow-hidden project-card">
-                            <div class="aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <img src="images/dw4.png" alt="Data Warehouse Project" class="w-full h-full object-cover">
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-lg font-semibold mb-2">Data Warehouse & Analytics Project</h3>
-                                <p class="text-secondary text-sm mb-4">End-to-End Data Warehousing Solution with ETL Pipelines</p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="badge px-2 py-1 rounded text-xs">SQL Server 🗄️</span>
-                                    <span class="badge px-2 py-1 rounded text-xs">ETL Pipelines 🔄</span>
-                                    <span class="badge px-2 py-1 rounded text-xs">Data Modeling 📊</span>
-                                    <span class="badge px-2 py-1 rounded text-xs">Medallion Architecture 🥇</span>
-                                    <span class="badge px-2 py-1 rounded text-xs">Star Schema ⭐</span>
-                                    <span class="badge px-2 py-1 rounded text-xs">Data Analytics 📈</span>
-                                </div>
-                                <a href="https://github.com/abdelrhmanashraf103/sql-data-warehouse-project/blob/master/README.md" class="w-full border border-gray-300 py-2 rounded text-sm hover-bg transition-colors block text-center" target="_blank" rel="noopener noreferrer">
-                                    View Project
-                                </a> <br>
-                                <a href="summary/page5/data_warehouse.html" class="w-full border border-gray-300 py-2 rounded text-sm hover-bg transition-colors block text-center" target="_blank" rel="noopener noreferrer">
-                                    View Summary
-                                </a>
-                            </div>
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="images/dw4.png" alt="Data Warehouse Project" class="w-full h-full object-cover">
                         </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold mb-2">Data Warehouse & Analytics Project</h3>
+                            <p class="text-secondary text-sm mb-4">End-to-End Data Warehousing Solution with ETL Pipelines</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge px-2 py-1 rounded text-xs">SQL Server 🗄️</span>
+                                <span class="badge px-2 py-1 rounded text-xs">ETL Pipelines 🔄</span>
+                                <span class="badge px-2 py-1 rounded text-xs">Data Modeling 📊</span>
+                                <span class="badge px-2 py-1 rounded text-xs">Medallion Architecture 🥇</span>
+                                <span class="badge px-2 py-1 rounded text-xs">Star Schema ⭐</span>
+                                <span class="badge px-2 py-1 rounded text-xs">Data Analytics 📈</span>
+                            </div>
+                            <a href="https://github.com/abdelrhmanashraf103/sql-data-warehouse-project/blob/master/README.md" class="w-full border border-gray-300 py-2 rounded text-sm hover-bg transition-colors block text-center" target="_blank" rel="noopener noreferrer">
+                                View Project
+                            </a> <br>
+                            <a href="summary/page5/data_warehouse.html" class="w-full border border-gray-300 py-2 rounded text-sm hover-bg transition-colors block text-center" target="_blank" rel="noopener noreferrer">
+                                View Summary
+                            </a>
+                        </div>
+                    </div>
                     </div>
                 </div>
 
